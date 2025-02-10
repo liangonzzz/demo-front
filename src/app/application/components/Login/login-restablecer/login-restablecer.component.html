@@ -1,0 +1,38 @@
+<div class="login-container">
+  <div class="image-section">
+    <div class="overlay"></div>
+  </div>
+  <div class="form-section">
+    <img src="../../../../../assets/images/logo_grh (1).svg" alt="Logo" class="logo" />
+    <h2>Restablece tu contraseña</h2>
+    <h5>
+      Ingresa tu correo y te enviaremos las instrucciones para restablecer tu
+      contraseña
+    </h5>
+
+    <form [formGroup]="resetForm" (ngSubmit)="onSubmit()">
+      <div class="p-field">
+        <label for="email"></label>
+        <span class="p-input-icon-left">
+          <i class="pi pi-envelope"></i>
+          <input pInputText id="email" type="email" placeholder="Ingrese su Correo Electrónico"
+            formControlName="email" />
+        </span>
+      </div>
+
+      <!-- Contenedor del mensaje de error -->
+      <div class="error-container">
+        <p *ngIf="errorMessage" class="error-text">
+          {{ errorMessage }}
+        </p>
+      </div>
+
+      <app-button label="ENVIAR" type="submit"></app-button>
+
+      <div class="return-home">
+        <a (click)="navigateToDatateam()"><i class="pi pi-arrow-left"></i> Vuelve a la pantalla de Inicio de Sesión </a>
+      </div>
+    </form>
+  </div>
+</div>
+

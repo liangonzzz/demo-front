@@ -1,0 +1,42 @@
+/* 🔥 Estilo del Botón 🔥 */
+.p-button {
+  width: 100%;
+  height: 40px;
+  padding: 0;
+  background-color: #4a628a !important;
+  color: #ffffff;
+  border: none !important;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+/* 🔥 Eliminar el botón interno de PrimeNG 🔥 */
+.p-button button {
+  all: unset; /* Elimina todos los estilos predeterminados */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🔥 Ajustar el texto dentro del botón 🔥 */
+.p-button .p-button-label {
+  font-size: 14px;
+}
+
+
+/* 🔥 Hover y Focus - Eliminar borde y sombra 🔥 */
+.p-button:hover,
+.p-button:focus,
+.p-button:active {
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: var(--azul-hover) !important;
+}

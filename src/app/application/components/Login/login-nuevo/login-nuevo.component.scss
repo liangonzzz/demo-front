@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import "primeicons/primeicons.css";
+
+body, .login-container, .form-section, form, label, input, .p-button, .error-container {
+  font-family: 'Roboto', sans-serif;
+}
+
+.login-container {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  height: 95vh;
+  overflow: hidden;
+  margin-top: 10px;
+  justify-items: center;
+  align-items: center;
+}
+
+.image-section {
+  background: url('../../../../../assets/images/loginfoto.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  margin-left: 60px; /* Espacio a la izquierda */
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(120, 145, 221, 0.5);
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+}
+
+/* Sección del formulario */
+.form-section {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 380px;
+  margin-left: 40px;
+}
+
+.logo {
+  max-width: 230px;
+  height: auto;
+  padding: 8px 20px;
+  margin-top: 22px;
+}
+
+h2 {
+  margin-top: 50px;
+  margin-bottom: 15px;
+  font-size: 17px;
+  font-weight: bold;
+  color: var(--gris-1);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 360px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.p-field {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+label {
+  font-weight: 450;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: var(--gris-2);
+}
+
+input::placeholder {
+  color: var(--gris-5);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.p-field-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 4px; /* Espacio entre el checkbox y el texto */
+  margin-top: 5px;
+}
+
+.p-field-checkbox input[type="checkbox"] {
+  width: 8px;
+  height: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  accent-color: var(--azul-brillante); /* Color del checkbox cuando esté seleccionado */
+  border: 2px solid var(--azul-brillante); /* Color de borde cuando no está seleccionado */
+  background-color: white; /* Fondo blanco cuando no está seleccionado */
+  appearance: none; /* Eliminar el estilo predeterminado del navegador */
+  position: relative;
+}
+
+/* Estilo para el checkbox cuando está seleccionado */
+.p-field-checkbox input[type="checkbox"]:checked {
+  background-color: var(--azul-brillante); /* Fondo azul brillante cuando está seleccionado */
+  border-color: var(--azul-brillante); /* Borde azul brillante cuando está seleccionado */
+}
+
+/* Estilo para el checkmark */
+.p-field-checkbox input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 5px;
+  height: 10px;
+  border: solid white; /* Color del checkmark */
+  border-width: 0 2px 2px 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+
+
+.p-field-checkbox label {
+  font-size: 11px;
+  cursor: pointer;
+  margin-top: 5px;
+  color: var(--azul-brillante); /* Asumiendo que esta variable esté definida */
+}
+
+
+input {
+  width: 100%;
+  height: 36px;
+  padding: 6px;
+  border: 1px solid var(--gris-4);
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 11px;
+}
+
+
+
+.forgot-password {
+  margin-top: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.forgot-password a {
+  font-size: 11px;
+  color: var(--azul);
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+input:focus {
+  border-color: var(--azul) !important;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-wrapper i, .input-wrapper span {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: var(--gris-5);
+}
+
+.input-wrapper span {
+  left: 6px !important;
+}
+
+.input-wrapper input {
+  padding-left: 32px; /* Espacio para el ícono */
+}
+
+
+.input-wrapper span.material-symbols-outlined {
+  font-size: 20px; /* Aumenta el tamaño según necesidad */
+}
+
+.error-container {
+  min-height: 0; /* No ocupa espacio por defecto */
+  transition: min-height 0.3s ease; /* Transición suave */
+  margin-top: 20px; /* Espacio superior para separar del botón */
+}
+
+.error-text {
+  color: red;
+  text-align: center;
+  font-size: 12px;
+  margin: 0; /* Elimina el margen predeterminado del <p> */
+  padding: 4px 0; /* Espaciado interno para el mensaje */
+  transform: translateY(-10px); /* Desplazamiento inicial */
+  transition: opacity 0.4s ease, transform 0.4s ease; /* Transición suave */
+}
+
+.error-container:has(.error-text) {
+  min-height: 8px; /* Reserva espacio solo cuando hay un mensaje */
+  margin-top: 30px;
+
+}
+
+
+/* Tablets y pantallas medianas (hasta 1024px) */
+@media (max-width: 1024px) {
+/* Contenedor principal centrado */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Asegura que ocupe toda la pantalla */
+  padding: 20px;
+  position: relative;
+}
+
+/* Imagen cuadrada arriba del formulario */
+.image-section {
+  width: 300px; /* Siempre cuadrada */
+  height: 300px;
+  background: url('../../../../../assets/images/loginfoto.jpg') no-repeat center center;
+  background-size: cover;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+/* Formulario centrado sin fondo */
+.form-section {
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Asegurar que el formulario no quede pegado arriba en pantallas chicas */
+@media (max-height: 700px) {
+  .login-container {
+    height: auto;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+}
+
+/* Responsive: Ajustar la imagen y centrar mejor en móviles */
+@media (max-width: 768px) {
+  .image-section {
+    width: 250px;
+    height: 250px;
+  }
+
+  .form-section {
+    max-width: 90%;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .image-section {
+    width: 200px;
+    height: 200px;
+  }
+
+  .form-section {
+    max-width: 95%;
+  }
+}
+}

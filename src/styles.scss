@@ -1,0 +1,39 @@
+@import url('./styles/buttton/button.scss');
+
+
+:root {
+  /*
+    --rojo: #f43f5e;
+    --naranja: #f97316;
+    --amarillo: #eab308;
+    --verde: #10b981;
+    --azul: #4a628a;
+    --azul_claro: #0cb8d5;
+    --morado: #8b5cf6;
+
+    --rojo-hover: #f62d4e;
+    --naranja-hover: #f97316;
+    --amarillo-hover: #d99b06;
+    --verde-hover: #12b88e;
+    --azul-hover: #3a4e70;
+    --azul_claro-hover: #0a9ea9;
+    --morado-hover: #7b4ce0;
+  */
+    /* Colores Primarios*/
+    --azul: #4a628a;
+    --azul-hover: #415880;
+
+    /* Colores Secundarios*/
+    --azul-brillante: #9bc5de;
+
+  /* Surface */
+    --gris-1: #484848;
+    --gris-2: #686868;
+    --gris-3: #a4a4a4;
+    --gris-4: #d4d4d4;
+    --gris-5: #e5e5e5;
+
+
+    --white: white;
+    --black: black;
+  }
