@@ -1,10 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { ButtonComponent } from '../../../shared/button/button.component';
 import { environment } from '../../../../../environments/environment';
-
 import { validateForm } from '../../..//../domain/services/validate-form/validate-form';
 
 // prime
