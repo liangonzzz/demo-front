@@ -1,45 +1,34 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../../shared/button/button.component';
 import { environment } from '../../../../../environments/environment';
-import { NotificadorErrorInputDirective } from '../../..//../domain/directives/notificador-error-input/notificador-error-input.directive';
+
 import { validateForm } from '../../..//../domain/services/validate-form/validate-form';
 
 // prime
-import { InputTextModule } from 'primeng/inputtext';
-import { PasswordModule } from 'primeng/password';
-import { ButtonModule } from 'primeng/button';
+
 
 @Component({
   selector: 'app-login-nuevo',
-  standalone: true,
-  imports: [
-    CommonModule,
-    InputTextModule,
-    ReactiveFormsModule,
-    PasswordModule,
-    ButtonModule,
-    ButtonComponent,
-    NotificadorErrorInputDirective,
-
-  ],
   templateUrl: './login-nuevo.component.html',
   styleUrl: './login-nuevo.component.scss'
 })
-export class LoginNuevoComponent {
-  loginForm: FormGroup;
+export class LoginNuevoComponent implements OnInit {
+  loginForm!: FormGroup;
   showError: boolean = false; // Controla la visibilidad del mensaje de error
   imgLogo: string = environment.imgLogo;
   private errorTimeout: any; // Almacena el timeout para el mensaje de error
 
-  constructor(private router: Router, private fb: FormBuilder) {
+  constructor(private router: Router, private fb: FormBuilder, private cdr: ChangeDetectorRef) {}
+
+  ngOnInit() {
     this.loginForm = this.fb.group({
-      documentNumber: ['', Validators.required], // Campo obligatorio
-      password: ['', Validators.required] // Campo obligatorio
+      documentNumber: ['', Validators.required],
+      password: ['', Validators.required],
     });
-  }
+   }
 
   getFormValidationErrors() {
     const errors: any = {};
@@ -53,27 +42,11 @@ export class LoginNuevoComponent {
   }
 
   onSubmit() {
-    // Verifica si los campos están vacíos
-    validateForm(this.loginForm);
-    //console.log('Errores de validación:', this.getFormValidationErrors());
-    //(this.loginForm.invalid) {
-      //this.showError = true; // Muestra el mensaje de error
-
-      // Cancela el timeout anterior si existe
-      //if (this.errorTimeout) {
-        //clearTimeout(this.errorTimeout);
-      //}
-
-      // Oculta el mensaje de error después de 1500 ms
-      //this.errorTimeout = setTimeout(() => {
-        //this.showError = false;
-      //}, 1500);
-    //} else {
-      //this.showError = false; // Oculta el mensaje de error
+   
+    if (this.loginForm.valid) {
       this.router.navigate(['/login-restablecer']); // Navega al siguiente componente
-
+    } else {
+      validateForm(this.loginForm);
+    }
   }
-
-
-
 }
