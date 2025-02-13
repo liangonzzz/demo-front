@@ -1,23 +1,23 @@
-import { AfterViewInit, ComponentRef, Directive, ElementRef, HostListener, Input, OnDestroy, Renderer2, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, ComponentRef, Directive, ElementRef, HostListener, Inject, Input, OnDestroy, PLATFORM_ID, Renderer2, ViewContainerRef } from '@angular/core';
 import { AbstractControl, NgControl, ValidationErrors } from '@angular/forms';
 import { debounceTime, Subscription } from 'rxjs';
 import { MensajeErrorInputComponent } from '../../../application/shared/mensaje-error-input/mensaje-error-input.component';
 import { ErrorSobrescritura as ErroresSobrescritura, ResolutorMensajesErrorService } from '../../services/error/resolutor-mensajes-error.service';
-
+import { isPlatformBrowser } from '@angular/common';
 /**
  * Configura una etiqueta HTML para la visualización de los errores bajo los inputs
  */
 @Directive({
   selector: '[appNotificadorErrorInput]',
-  standalone: true
-
+ 
 })
 export class NotificadorErrorInputDirective implements AfterViewInit, OnDestroy {
   constructor(private ngControl: NgControl,
     private renderer: Renderer2,
     private el: ElementRef,
     private viewContainerRef: ViewContainerRef,
-    private resolutorMensajesSrv: ResolutorMensajesErrorService) { }
+    private resolutorMensajesSrv: ResolutorMensajesErrorService,
+    @Inject(PLATFORM_ID) private platformId: Object,) {  }
 
   /** Mensajes de error proporcionados, estos se usan de manera prioritaria */
   @Input() mensajesErrorSobrescritura: ErroresSobrescritura = {};
@@ -37,6 +37,8 @@ export class NotificadorErrorInputDirective implements AfterViewInit, OnDestroy 
 
   public ngAfterViewInit(): void {
     // Obtengo una referencia al control de formulario y al elemento nativo
+    
+    if (!isPlatformBrowser(this.platformId)) return;
     this.configurarControl();
     this.configurarElementoNativo();
 
@@ -44,7 +46,9 @@ export class NotificadorErrorInputDirective implements AfterViewInit, OnDestroy 
     if (!this.control) return;
 
     // Creo y configuro los elementos contenedores del input
-    this.crearComponenteMensaje();
+    if (isPlatformBrowser(this.platformId)) {
+       this.crearComponenteMensaje();
+    }
     const elementoDiv = this.crearElementoContenedor();
     this.insertarComponenteMensaje(elementoDiv);
 
@@ -169,7 +173,9 @@ export class NotificadorErrorInputDirective implements AfterViewInit, OnDestroy 
    * Define el elemento nativo de esta directiva
    */
   private configurarElementoNativo(): void {
-    this.elementoNativo = this.el.nativeElement as HTMLElement;
+   if (isPlatformBrowser(this.platformId)) {
+      this.elementoNativo = this.el.nativeElement as HTMLElement;
+    }
   }
 
   @HostListener('onClear')

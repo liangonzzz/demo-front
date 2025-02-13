@@ -17,7 +17,6 @@ export class ResolutorMensajesErrorService {
 
   public show(message: string): string {
     // TODO: When we have the modals module or toasted display the error
-
     this.errorMessage = message;
     return message;
   }
@@ -62,7 +61,6 @@ export class ResolutorMensajesErrorService {
     // Tercero y último, se busca en los mensajes constantes predeterminados
     // Retorna el primer mensaje que se encuentre.
     // Si ninguno de estos coincide se retorna el mensaje por defecto
-
     const errorResuelto =
       this.resolverMensajeSobrescritura(llaveError, erroresSobrescritura)
       ?? this.resolverMensajeSobrescrituraGeneral(llaveError)
@@ -79,7 +77,7 @@ export class ResolutorMensajesErrorService {
    * @param errores Los errores de sobrescritura a definir como generales
    */
   public definirErroresSobrescritura(errores: ErrorSobrescritura) {
-    if (!errores) return;
+  if (!errores) return;
     this.errorSobrescrituraGeneral = errores;
   }
 
@@ -106,7 +104,6 @@ export class ResolutorMensajesErrorService {
     // Si el objeto de errores no existe
     // O si no tiene errores registrados
     // O si la llave de error no está definida en los errores
-
     if (!errores
       || Object.keys(errores).length == 0
       || !(llaveError in errores))
@@ -161,8 +158,6 @@ export class ResolutorMensajesErrorService {
   private obtenerPrimerError(errors: ValidationErrors): EspecificacionErrorInput | null {
     const entries = Object.entries(errors);
     // No existen errores de validación
-
-
     if (!entries || entries.length == 0) return null;
 
     // Resuelvo el primer error
