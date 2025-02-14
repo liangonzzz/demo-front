@@ -41,7 +41,7 @@ export class LoginNuevoComponent implements OnInit {
   onSubmit() {
 
     if (this.loginForm.valid) {
-      this.router.navigate(['/login-restablecer']); // Navega al siguiente componente
+      this.router.navigate(['/restablecer']); // Navega al siguiente componente
     } else {
       validateForm(this.loginForm);
     }
