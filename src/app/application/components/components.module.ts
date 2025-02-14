@@ -22,19 +22,32 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { InputOtpModule } from 'primeng/inputotp';
 import { TooltipModule } from 'primeng/tooltip';
-import { ToastModule } from 'primeng/toast'; 
+import { ToastModule } from 'primeng/toast';
 import { FileUploadModule } from 'primeng/fileupload';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ReactiveFormsModule } from '@angular/forms';
-/** COMPONENTES */
 
+/** Componentes */
 import { LoginNuevoComponent } from './Login/login-nuevo/login-nuevo.component';
+import { LoginPrincipalComponent } from './Login/login-principal/login-principal.component';
+import { RestablecerComponent } from './Login/restablecer/restablecer.component';
+import { ConfirmarComponent } from './Login/confirmar/confirmar.component';
+import { ConfiContraComponent } from './Login/confi-contra/confi-contra.component';
+import { ConfiCorreoComponent } from './Login/confi-correo/confi-correo.component';
+
+/** Shared */
 import { ButtonComponent } from '../shared/button/button.component';
 import { NotificadorErrorInputDirective } from '../../domain/directives/notificador-error-input/notificador-error-input.directive';
+
 
 @NgModule({
   declarations: [
     LoginNuevoComponent,
+    LoginPrincipalComponent,
+    RestablecerComponent,
+    ConfirmarComponent,
+    ConfiContraComponent,
+    ConfiCorreoComponent,
     ButtonComponent,
     NotificadorErrorInputDirective
   ],

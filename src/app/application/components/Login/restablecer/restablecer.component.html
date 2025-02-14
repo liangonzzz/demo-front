@@ -1,0 +1,51 @@
+<div class="login-container">
+  <!-- Sección de la imagen (Cuadro Rojo) -->
+  <div class="image-section">
+    <div class="overlay"></div>
+    <div>
+      <img [src]="imgGrhLogo" alt="marca" class="marca">
+    </div>
+  </div>
+
+  <!-- Sección del logo (Cuadro Azul) -->
+  <div class="logo-section">
+    <img [src]="imgGrhLogo" alt="Logo" class="logo">
+  </div>
+
+  <!-- Sección del formulario (Cuadro Verde) -->
+  <div class="form-section">
+    <h2>Bienvenido</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="p-field">
+        <label for="password"> Nueva contraseña</label>
+        <div class="input-wrapper">
+          <span class="material-symbols-outlined">lock</span>
+          <input pInputText id="password" type="password" placeholder="Ingrese su nueva contraseña"
+            formControlName="password" />
+        </div>
+        <small class="resetpass">La contraseña debe tener al menos 8 caracteres, incluyendo mayúsculas, minúsculas, un
+          número y un símbolo.</small>
+      </div>
+
+      <!-- Campo de contraseña -->
+      <div class="p-field">
+        <label for="password"> Confirmar contraseña</label>
+        <div class="input-wrapper">
+          <span class="material-symbols-outlined">lock</span>
+          <input pInputText id="passwordConfirm" type="password" placeholder="Confirme su nueva contraseña"
+            formControlName="passwordConfirm" />
+        </div>
+      </div>
+
+      <!-- Botón de enviar -->
+      <app-button etiqueta="Iniciar Sesión" tipo="submit"></app-button>
+
+
+
+      <!-- Enlace de "Olvidaste tu contraseña" -->
+      <div class="return-home">
+        <a (click)="navigateToLoginRestablecer()"><i class="pi pi-arrow-left"></i> Vuelve a la pantalla de Inicio de Sesión</a>
+      </div>
+    </form>
+  </div>
+</div>

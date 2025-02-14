@@ -2,9 +2,10 @@
   <!-- Sección de la imagen (Cuadro Rojo) -->
   <div class="image-section">
     <div class="overlay"></div>
-    <div><img [src]="imgGrhLogo" alt="marca" class="marca"></div>
+    <div>
+      <img [src]="imgGrhLogo" alt="marca" class="marca">
+    </div>
   </div>
-
 
   <!-- Sección del logo (Cuadro Azul) -->
   <div class="logo-section">
@@ -14,30 +15,43 @@
   <!-- Sección del formulario (Cuadro Verde) -->
   <div class="form-section">
     <h2>Bienvenido</h2>
-    <form *ngIf="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
       <div class="p-field">
         <label for="documentNumber">Número de usuario</label>
-        <div>
+        <div class="input-wrapper">
           <i class="pi pi-user"></i>
           <input pInputText id="documentNumber" type="number" placeholder="Ingrese su número de identificación"
             formControlName="documentNumber" appNotificadorErrorInput />
         </div>
       </div>
 
+
       <div class="p-field">
         <label for="password">Contraseña</label>
-        <div>
+        <div class="input-wrapper">
           <span class="material-symbols-outlined">lock</span>
-          <input pInputText id="password" formControlName="password" placeholder="Ingrese su contraseña"
-            appNotificadorErrorInput />
+          <input pInputText id="password" formControlName="password" type="password" placeholder="Ingrese su contraseña"
+          appNotificadorErrorInput />
         </div>
       </div>
 
+      <div class="checkbox-container">
+        <input type="checkbox" id="recordar-contrasena" class="custom-checkbox">
+        <label for="recordar-contrasena">Recordar contraseña</label>
+      </div>
 
+
+
+      <!-- Botón de enviar -->
       <app-button etiqueta="Iniciar Sesión" tipo="submit"></app-button>
 
+
+
+      <!-- Enlace de "Olvidaste tu contraseña" -->
+      <div class="forgot-password">
+        <a (click)="navigateToLoginRestablecer()">¿Olvido su contraseña?</a>
+      </div>
     </form>
   </div>
 </div>

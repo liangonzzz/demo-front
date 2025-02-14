@@ -1,7 +1,13 @@
 export const environment = {
   production: false,
+//Proyecto GRH real
+
+  //Login
+  imgGrhLogo: 'assets/images/logo_grh.svg',
+
+
+
   //Titulo para la pantalla de valida datos
-  imgLogo: 'assets/images/logo_grh.svg',
   imgVertical: 'assets/image_v2/ASESORA_.png',
   imgAmigos: 'assets/image_v2/LogoAmigosPagaTodo.png',
   imgTypeDocument: 'assets/image_v2/id-card.png',

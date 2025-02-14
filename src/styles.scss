@@ -1,108 +1,46 @@
-@import url('./styles/buttton/button.scss');
+@import url('styles/button/button.scss');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import "primeicons/primeicons.css";
 
-
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
 :root {
-  /*
-    --rojo: #f43f5e;
-    --naranja: #f97316;
-    --amarillo: #eab308;
-    --verde: #10b981;
-    --azul: #4a628a;
-    --azul_claro: #0cb8d5;
-    --morado: #8b5cf6;
+/*
+  --rojo: #f43f5e;
+  --naranja: #f97316;
+  --amarillo: #eab308;
+  --verde: #10b981;
+  --azul: #4a628a;
+  --azul_claro: #0cb8d5;
+  --morado: #8b5cf6;
 
-    --rojo-hover: #f62d4e;
-    --naranja-hover: #f97316;
-    --amarillo-hover: #d99b06;
-    --verde-hover: #12b88e;
-    --azul-hover: #3a4e70;
-    --azul_claro-hover: #0a9ea9;
-    --morado-hover: #7b4ce0;
-  */
-    /* Colores Primarios*/
-    --azul: #4a628a;
-    --azul-hover: #415880;
+  --rojo-hover: #f62d4e;
+  --naranja-hover: #f97316;
+  --amarillo-hover: #d99b06;
+  --verde-hover: #12b88e;
+  --azul-hover: #3a4e70;
+  --azul_claro-hover: #0a9ea9;
+  --morado-hover: #7b4ce0;
+*/
+  /* Colores Primarios*/
+  --azul: #4a628a;
+  --azul-hover: #415880;
 
-    /* Colores Secundarios*/
-    --azul-brillante: #9bc5de;
+  /* Colores Secundarios*/
+  --azul-brillante: #9bc5de;
 
-  /* Surface */
-    --gris-1: #484848;
-    --gris-2: #686868;
-    --gris-3: #a4a4a4;
-    --gris-4: #d4d4d4;
-    --gris-5: #e5e5e5;
+/* Surface */
+  --gris-1: #484848;
+  --gris-2: #686868;
+  --gris-3: #a4a4a4;
+  --gris-4: #d4d4d4;
+  --gris-5: #e5e5e5;
 
 
-    --white: white;
-    --black: black;
-
-    --color-1: #DA291C;
-  --color-2: #CC1515;
-  --color-3: #C60D0E;
-  --color-4: #47BA31;
-  --color-5: #1E37B7;
-  --color-6: #002D74;
-  --color-7: #C7D6E9;
-  --color-8: #6C757D;
-  --color-9: #F2F2F2;
-  --color-10: #00000045;
-  --color-11: #F8B7BD;
-  --color-12: #FFC600;
-  --color-13: #FFFFFF;
-  --color-14: #333333;
-  --color-15: #D8D8D8;
-  --color-16: #FF0000;
-  --color-17: #0952C5;
-  --color-18: #E90505;
-  --color-19: #2076BD59;
-  --color-20: #197B30;
-  --color-21: #6A6A6A;
-  --color-22: #1EA97C;
-  --color-23: #991D14;
-  --color-24: #8A8080;
-  --color-25: #7D7A7A;
-  --color-26: #002D7421;
-  --color-27: #545454;
-  --color-28: #6b6969;
-  --color-29: #dcdcdc;
-  --color-30: #e1181e;
-  --color-31: #1a9746;
-  --color-32: #8894d4;
-  --color-33: #f3f2f3;
-  --color-34: #777777;
-  --color-35: #edf0f5;
-  --color-36: #dee2e6;
-  --color-37: #f0f3f4;
-  --color-38: #666666;
-  --color-39: #a6a6a6;
-  --color-40: #eff6ff;
-  --color-41: #5278e2;
-  --color-42: #e6e6e6;
-  --color-43: #8c8c8c;
-  --color-43: #8da0c0;
-  --color-45: #7F95B9;
-  --color-46: #d0d0d0;
-  --color-47: #47BA31;
-  --color-48: #2076BD;
-  --color-49: #F0F3f4;
-  --color-50: #00458D;
-
-  --font-size-1: 10px;
-  --font-size-2: 11px;
-  --font-size-3: 12px;
-  --font-size-4: 13px;
-  --font-size-5: 14px;
-  --font-size-6: 16px;
-  --font-size-7: 18px;
-
-  --shadow-1: 0px 3px 6px;
-  --shadow-2: 0px 3px 8px;
-  --border-radius-1: 5px;
-  --border-radius-2: 10px;
-  --border-radius-3: 15px;
-  --border-radius-4: 20px;
-  --font-family-1: 'Roboto';
-  --font-family-2: 'Montserrat';
-  --animation-1: 200ms;
-  }
+  --white: white;
+  --black: black;
+}

@@ -1,0 +1,33 @@
+<div class="login-container">
+  <!-- Sección de la imagen (Cuadro Rojo) -->
+  <div class="image-section">
+    <div class="overlay"></div>
+    <div>
+      <img [src]="imgGrhLogo" alt="marca" class="marca">
+    </div>
+  </div>
+
+  <!-- Sección del logo (Cuadro Azul) -->
+  <div class="logo-section">
+    <img [src]="imgGrhLogo" alt="Logo" class="logo">
+  </div>
+
+  <!-- Sección del formulario (Cuadro Verde) -->
+  <div class="form-section">
+
+    <!-- 🔹 Mensaje de éxito -->
+    <div class="success-message">
+      <div class="icon-circle">
+        ✔
+      </div>
+
+      <h2>Su contraseña ha sido restablecida</h2>
+      <h3>Puede iniciar sesión con su nueva contraseña. Si tiene algún problema, póngase en contacto con el administrador.</h3>
+    </div>
+
+    <form>
+      <app-button etiqueta="Iniciar Sesión" tipo="submit"></app-button>
+    </form>
+  </div>
+</div>
+

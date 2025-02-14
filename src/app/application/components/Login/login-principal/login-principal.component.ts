@@ -1,22 +1,18 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from '../../../../../environments/environment';
-import { validateForm } from '../../..//../domain/services/validate-form/validate-form';
-
-// prime
-
+import { validateForm } from '../../../../domain/services/validate-form/validate-form';
 
 @Component({
-  selector: 'app-login-nuevo',
-  templateUrl: './login-nuevo.component.html',
-  styleUrl: './login-nuevo.component.scss'
+  selector: 'app-login-principal',
+  templateUrl: './login-principal.component.html',
+  styleUrl: './login-principal.component.scss'
 })
-export class LoginNuevoComponent implements OnInit {
+export class LoginPrincipalComponent {
+
   loginForm!: FormGroup;
-  showError: boolean = false; // Controla la visibilidad del mensaje de error
   imgGrhLogo: string = environment.imgGrhLogo;
-  private errorTimeout: any; // Almacena el timeout para el mensaje de error
 
   constructor(private router: Router, private fb: FormBuilder, private cdr: ChangeDetectorRef) {}
 
@@ -25,7 +21,7 @@ export class LoginNuevoComponent implements OnInit {
       documentNumber: ['', Validators.required],
       password: ['', Validators.required],
     });
-   }
+  }
 
   getFormValidationErrors() {
     const errors: any = {};
@@ -41,9 +37,13 @@ export class LoginNuevoComponent implements OnInit {
   onSubmit() {
 
     if (this.loginForm.valid) {
-      this.router.navigate(['/login-restablecer']); // Navega al siguiente componente
+      this.router.navigate(['/login-restablecer']);
     } else {
       validateForm(this.loginForm);
     }
+  }
+
+  navigateToLoginRestablecer() {
+    this.router.navigate(['/confirmar']);
   }
 }

@@ -1,0 +1,35 @@
+<div class="login-container">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <!-- Sección de la imagen (Cuadro Rojo) -->
+  <div class="image-section">
+    <div class="overlay"></div>
+    <div>
+      <img  [src]="imgGrhLogo" alt="marca" class="marca">
+    </div>
+  </div>
+
+  <!-- Sección del logo (Cuadro Azul) -->
+  <div class="logo-section">
+    <img [src]="imgGrhLogo" alt="Logo" class="logo">
+  </div>
+
+  <!-- Sección del formulario (Cuadro Verde) -->
+  <div class="form-section">
+
+    <!-- 🔹 Mensaje de éxito -->
+    <div class="success-message">
+      <div class="icon-circle">
+        <i class="fa fa-envelope"></i>
+      </div>
+
+      <h2>El correo ha sido enviado</h2>
+      <h3>Revise su correo electronico y siga las instrucciones para restablecer su contreseña.</h3>
+    </div>
+
+    <form>
+      <app-button etiqueta="Iniciar Sesión" tipo="submit" (click)="redirectToLogin()"></app-button>
+    </form>
+  </div>
+</div>
+

@@ -1,0 +1,40 @@
+<div class="login-container">
+  <!-- Sección de la imagen (Cuadro Rojo) -->
+  <div class="image-section">
+    <div class="overlay"></div>
+    <div>
+      <img [src]="imgGrhLogo" alt="marca" class="marca">
+    </div>
+  </div>
+
+  <!-- Sección del logo (Cuadro Azul) -->
+  <div class="logo-section">
+    <img [src]="imgGrhLogo"imgGrhLogo alt="Logo" class="logo">
+  </div>
+
+  <!-- Sección del formulario (Cuadro Verde) -->
+  <div class="form-section">
+    <h2>Restablece tu contraseña</h2>
+    <h5>
+      Por favor, ingrese su número de identifiacion o correo electronico.<br>
+      Le enviaremos las instrucciones para restablecer su contraseña.
+    </h5>
+
+    <form [formGroup]="resetForm" (ngSubmit)="onSubmit()">
+      <div class="p-field">
+        <label for="email"></label>
+        <span class="p-input-icon-left">
+          <i class="pi pi-envelope"></i>
+          <input pInputText id="email" type="email" placeholder="Ingrese su Correo Electrónico"
+            formControlName="email" />
+        </span>
+      </div>
+
+      <app-button etiqueta="Iniciar Sesión" tipo="submit"></app-button>
+
+      <div class="return-home">
+        <a (click)="navigateToDatateam()"><i class="pi pi-arrow-left"></i> Vuelve a la pantalla de Inicio de Sesión </a>
+      </div>
+    </form>
+  </div>
+</div>
