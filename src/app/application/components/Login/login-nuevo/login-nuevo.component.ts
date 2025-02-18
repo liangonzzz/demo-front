@@ -16,6 +16,8 @@ export class LoginNuevoComponent implements OnInit {
   loginForm!: FormGroup;
   showError: boolean = false; // Controla la visibilidad del mensaje de error
   imgGrhLogo: string = environment.imgGrhLogo;
+  dataLogo: string = environment.dataLogo;
+
   private errorTimeout: any; // Almacena el timeout para el mensaje de error
 
   constructor(private router: Router, private fb: FormBuilder, private cdr: ChangeDetectorRef) {}
@@ -45,5 +47,9 @@ export class LoginNuevoComponent implements OnInit {
     } else {
       validateForm(this.loginForm);
     }
+  }
+
+  navigateToLoginRestablecer() {
+    this.router.navigate(['/confirmar']);
   }
 }

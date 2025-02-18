@@ -13,6 +13,8 @@ export class LoginPrincipalComponent {
 
   loginForm!: FormGroup;
   imgGrhLogo: string = environment.imgGrhLogo;
+  dataLogo: string = environment.dataLogo;
+
 
   constructor(private router: Router, private fb: FormBuilder, private cdr: ChangeDetectorRef) {}
 
@@ -46,4 +48,6 @@ export class LoginPrincipalComponent {
   navigateToLoginRestablecer() {
     this.router.navigate(['/confirmar']);
   }
+
+  
 }

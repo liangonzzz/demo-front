@@ -45,7 +45,7 @@ html {
   }
 }
 
-// Sección de logo (🔵 Derecha Arriba)
+///////////* 🔵 Logo (Derecha Arriba) *///////////
 .logo-section {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
@@ -54,13 +54,22 @@ html {
   align-items: end;
   justify-content: center;
   height: 100%;
+}
 
-  .logo {
-    max-width: 210px;
-    height: auto;
-    padding: 8px 20px;
-    margin-bottom: 10px;
-  }
+.logo {
+  max-width: 250px;
+  height: auto;
+  padding: 8px 20px;
+  margin-bottom: 4px;
+}
+
+.marca {
+  position: absolute;
+  top: 20px;   /* Ajusta la distancia desde arriba */
+  max-width: 100px;
+  height: auto;
+  margin-top: 40px;
+  filter: grayscale(50%); /* Convierte la imagen a blanco y negro */
 }
 
 // Sección de formulario (🟢 Derecha Abajo)
@@ -108,12 +117,12 @@ html {
 
   input {
     width: 100%;
-    height: 36px;
+    height: 32px;
     padding: 6px 6px 6px 32px;
     border: 1px solid var(--gris-4);
     border-radius: 4px;
     box-sizing: border-box;
-    font-size: 11px;
+    font-size: 11.5px;
 
     &::placeholder {
       color: var(--gris-5);
@@ -133,8 +142,7 @@ html {
   }
 
   // Iconos dentro de los campos
-  i,
-  .material-symbols-outlined {
+  i {
     position: absolute;
     left: 10px;
     top: 29px; // Posición fija desde arriba
@@ -144,13 +152,116 @@ html {
   }
 
   .material-symbols-outlined {
-    font-size: 18px;
+    position: absolute;
+    left: 6px;
+    top: 26px; // Posición fija desde arriba
+    font-size: 20px;
+    color: var(--gris-5);
+    z-index: 1;
   }
 }
 
 // Botón
 .p-button:focus {
   border-color: var(--azul) !important;
+}
+
+.error-container {
+  display: none; /* Oculta el contenedor por defecto */
+  transition: all 0.4s ease;
+}
+
+.error-container:has(.error-text) {
+  display: block; /* Muestra el contenedor cuando tiene un error */
+  min-height: 8px;
+  margin-top: 12px;
+}
+
+.error-text {
+  color: red;
+  text-align: center;
+  font-size: 12px;
+  margin: 0;
+  padding: 4px 0;
+  transform: translateY(-5px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+
+
+.forgot-password {
+  margin-top: 12px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.forgot-password a {
+  font-size: 11px;
+  color: var(--azul);
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+.checkbox-container {
+  display: flex;
+  margin-top: 8px;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Espaciado entre el checkbox y el texto */
+}
+
+.custom-checkbox {
+  display: none;
+}
+
+.custom-checkbox + label {
+  position: relative;
+  width: 15px; /* Ajuste del tamaño del checkbox */
+  height: 15px;
+  cursor: pointer;
+}
+
+.custom-checkbox + label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.5px;
+  width: 13px;
+  height: 13px;
+  border: 2px solid #7bdbf1;
+  background-color: white;
+}
+
+.custom-checkbox:checked + label::before {
+  background-color: #7bdbf1; /* Fondo azul */
+}
+
+.custom-checkbox:checked + label::after {
+  content: "✔";
+  position: absolute;
+  left: 2.5px;
+  font-size: 9px;
+  color: white;
+  margin-top: 2.4px;
+}
+
+/* Estilos para el enlace */
+.checkbox-item a {
+  font-size: 9px;
+  color: #7bdbf1;
+  text-decoration: none;
+}
+
+.checkbox-item a:hover {
+  text-decoration: underline;
 }
 
 // Media queries para responsividad

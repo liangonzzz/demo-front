@@ -28,23 +28,6 @@ body, html {
   position: relative;
 }
 
-/* .marca {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  max-width: 10px;
-  height: auto;
-} */
-
-.marca {
-  position: absolute;
-  top: 20px;   /* Ajusta la distancia desde arriba */
-  right: 20px; /* La mueve a la derecha */
-  max-width: 160px;
-  height: auto;
-}
-
-
 .overlay {
   position: absolute;
   inset: 0;
@@ -68,10 +51,19 @@ body, html {
 }
 
 .logo {
-  max-width: 210px;
+  max-width: 250px;
   height: auto;
   padding: 8px 20px;
-  margin-bottom: 10PX;
+  margin-bottom: 4px;
+}
+
+.marca {
+  position: absolute;
+  top: 20px;   /* Ajusta la distancia desde arriba */
+  max-width: 100px;
+  height: auto;
+  margin-top: 40px;
+  filter: grayscale(50%); /* Convierte la imagen a blanco y negro */
 }
 
 
@@ -139,8 +131,7 @@ input{
 }
 
 
-input:focus,
-.p-button:focus {
+input:focus{
   border-color: var(--azul) !important;
 }
 
@@ -214,46 +205,62 @@ input:focus,
 
 .checkbox-container {
   display: flex;
+  margin-top: 8px;
+  flex-direction: column;
+}
+
+.checkbox-item {
+  display: flex;
   align-items: center;
-  margin-top: 12px;
+  gap: 5px; /* Espaciado entre el checkbox y el texto */
 }
 
 .custom-checkbox {
   display: none;
-
 }
 
-.custom-checkbox+label {
+.custom-checkbox + label {
   position: relative;
-  padding-left: 20px;
+  width: 15px; /* Ajuste del tamaño del checkbox */
+  height: 15px;
   cursor: pointer;
-  font-size: 10px;
-  color: #7bdbf1;
 }
 
-.custom-checkbox+label::before {
+.custom-checkbox + label::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 0;
+  top: 4px;
   width: 13px;
   height: 13px;
   border: 2px solid #7bdbf1;
   background-color: white;
 }
 
-.custom-checkbox:checked+label::before {
-  background-color: #7bdbf1;
-  /* Fondo azul */
+.custom-checkbox:checked + label::before {
+  background-color: #7bdbf1; /* Fondo azul */
 }
 
-.custom-checkbox:checked+label::after {
+.custom-checkbox:checked + label::after {
   content: "✔";
   position: absolute;
   left: 2.5px;
   font-size: 9px;
   color: white;
+  margin-top: 4px;
 }
+
+/* Estilos para el enlace */
+.checkbox-item a {
+  font-size: 9px;
+  color: #7bdbf1;
+  text-decoration: none;
+}
+
+.checkbox-item a:hover {
+  text-decoration: underline;
+}
+
 
 @media (max-width: 768px) {
   .login-container {

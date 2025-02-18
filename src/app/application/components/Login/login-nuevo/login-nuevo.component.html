@@ -2,13 +2,13 @@
   <!-- Sección de la imagen (Cuadro Rojo) -->
   <div class="image-section">
     <div class="overlay"></div>
-    <div><img [src]="imgGrhLogo" alt="marca" class="marca"></div>
   </div>
 
-
   <!-- Sección del logo (Cuadro Azul) -->
+
   <div class="logo-section">
-    <img [src]="imgGrhLogo" alt="Logo" class="logo">
+    <img [src]="dataLogo" alt="Logo" class="logo">
+    <img [src]="imgGrhLogo" alt="marca" class="marca">
   </div>
 
   <!-- Sección del formulario (Cuadro Verde) -->
@@ -35,10 +35,37 @@
         </div>
       </div>
 
+      <div class="checkbox-container">
+        <div class="checkbox-item">
+          <input type="checkbox" id="politica-seguridad" class="custom-checkbox">
+          <label for="politica-seguridad"></label>
+          <a href="URL_POLITICA_SEGURIDAD" target="_blank">Acepto la política de seguridad de la información.</a>
+        </div>
+
+        <div class="checkbox-item">
+          <input type="checkbox" id="datos-personales" class="custom-checkbox">
+          <label for="datos-personales"></label>
+          <a href="URL_DATOS_PERSONALES" target="_blank">Acepto la política de tratamiento de datos personales.</a>
+        </div>
+
+        <div class="checkbox-item">
+          <input type="checkbox" id="canal-digital" class="custom-checkbox">
+          <label for="canal-digital"></label>
+          <a href="URL_CANAL_DIGITAL" target="_blank">Conozco y acepto el portafolio actual habilitado para el canal digital.</a>
+        </div>
+      </div>
 
 
+
+      <!-- Botón de enviar -->
       <app-button etiqueta="Iniciar Sesión" tipo="submit"></app-button>
 
+
+
+      <!-- Enlace de "Olvidaste tu contraseña" -->
+      <div class="forgot-password">
+        <a (click)="navigateToLoginRestablecer()">¿Olvido su contraseña?</a>
+      </div>
     </form>
   </div>
 </div>

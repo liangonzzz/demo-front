@@ -4,6 +4,7 @@ export const environment = {
 
   //Login
   imgGrhLogo: 'assets/images/logo_grh.svg',
+  dataLogo: 'assets/images/datalogo.png',
 
 
 
