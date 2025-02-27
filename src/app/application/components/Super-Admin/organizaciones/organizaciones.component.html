@@ -1,0 +1,61 @@
+<!-- src/app/organizaciones/organizations-table.component.html -->
+<div class="table-container" [class.sidebar-expanded]="isSidebarExpanded">
+  <div class="header-rectangle">
+    <h3>Organizaciones</h3>
+    <button pButton label="Agregar organización" icon="pi pi-plus" class="add-button"></button>
+  </div>
+
+  <div class="search-rectangle">
+    <div class="search-wrapper">
+      <span class="search-icon">
+        <i class="pi pi-search"></i>
+        <input pInputText type="text" placeholder="Buscar por Razón social" (input)="onGlobalFilter($event)" />
+      </span>
+      <button pButton label="Buscar" class="search-button" (click)="search()"></button>
+    </div>
+  </div>
+
+  <div class="table-rectangle">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th (click)="sort('name')">Razón Social <i class="fa-solid fa-sort"></i></th>
+          <th (click)="sort('phone')">Teléfono <i class="fa-solid fa-sort"></i></th>
+          <th (click)="sort('email')">Correo <i class="fa-solid fa-sort"></i></th>
+          <th (click)="sort('admin')">Administración <i class="fa-solid fa-sort"></i></th>
+          <th (click)="sort('collaborators')">Funcionarios <i class="fa-solid fa-sort"></i></th>
+          <th (click)="sort('candidates')">Candidatos <i class="fa-solid fa-sort"></i></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let org of paginatedOrganizations">
+          <td><img [src]="org.logo" [alt]="'Logo ' + org.name" class="logo-img"></td>
+          <td>{{org.name}}</td>
+          <td>{{org.phone}}</td>
+          <td>{{org.email}}</td>
+          <td>{{org.admin}}</td>
+          <td>{{org.collaborators}}</td>
+          <td>{{org.candidates}}</td>
+          <td>
+            <div class="user-buttons-container">
+              <button pButton class="user-circle-button" icon="fa fa-pen"></button>
+              <button pButton class="user-circle-button"
+                [icon]="org.isActive ? 'fa-solid fa-toggle-on' : 'fa-solid fa-toggle-off'"
+                (click)="toggleOrganization(org)">
+              </button>
+              <button pButton class="user-circle-button" icon="fa-solid fa-trash"></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer-rectangle">
+    <button pButton label="Exportar a Excel" icon="pi pi-file-excel" class="export-button"></button>
+    <p-paginator [first]="first" [rows]="rows" [totalRecords]="totalRecords" (onPageChange)="onPageChange($event)">
+    </p-paginator>
+  </div>
+</div>

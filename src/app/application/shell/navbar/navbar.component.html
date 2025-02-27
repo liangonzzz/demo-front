@@ -1,0 +1,26 @@
+<nav class="navbar" [class.expanded]="isExpanded">
+  <div class="navbar-left">
+    <div class="company">
+      <img [src]="dataLogo" alt="Logo" class="box-image">
+    </div>
+  </div>
+
+  <div class="navbar-right">
+    <span class="username">Lian Gonzalez</span>
+    <div class="user-avatar">
+      <img [src]="fotoPerfil" alt="User avatar">
+    </div>
+    <div class="dropdown">
+      <button pButton class="dropdown-toggle p-button-text" (click)="toggleDropdown()">
+        <i class="fas fa-chevron-down"></i>
+      </button>
+      <div class="dropdown-menu" [class.show]="isDropdownOpen">
+        <a href="#" class="dropdown-item">Perfil</a>
+        <a href="#" class="dropdown-item">Cerrar Sesión</a>
+      </div>
+    </div>
+  </div>
+  <div class="navbar-bottom-line"></div> <!-- Línea separada -->
+</nav>
+
+

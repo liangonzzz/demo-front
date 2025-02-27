@@ -1,13 +1,15 @@
-body, html {
+body,
+html {
   width: 100%;
   height: 100%;
   margin: 0;
 }
 
+// Contenedor principal
 .login-container {
   display: grid;
-  grid-template-columns: 1.1fr 0.7fr; /* Ajuste responsive */
-  grid-template-rows: 1fr 1.6fr; /* 🔵 Arriba | 🟢 Abajo */
+  grid-template-columns: 1.1fr 0.7fr;
+  grid-template-rows: 1fr 1.6fr;
   row-gap: 10px;
   column-gap: 30px;
   width: 100vw;
@@ -16,47 +18,34 @@ body, html {
   box-sizing: border-box;
 }
 
-
-
-
+// Sección de imagen (🔴 Izquierda Completa)
 .image-section {
   grid-column: 1 / 2;
-  grid-row: 1 / 3; /* Ocupa ambas filas */
-  background: url('../../../../../assets/images/loginfoto.jpg') no-repeat center center;
+  grid-row: 1 / 3;
+  background: url('/assets/images/loginfoto.jpg') no-repeat center center;
   background-size: cover;
   border-radius: 15px;
   position: relative;
+
+  .marca {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    max-width: 160px;
+    height: auto;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(187, 230, 255, 0.5);
+    border-radius: 15px;
+    display: grid;
+    place-items: center;
+  }
 }
 
-/* .marca {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  max-width: 10px;
-  height: auto;
-} */
-
-.marca {
-  position: absolute;
-  top: 20px;   /* Ajusta la distancia desde arriba */
-  right: 20px; /* La mueve a la derecha */
-  max-width: 160px;
-  height: auto;
-}
-
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(187, 230, 255, 0.5);
-  border-radius: 15px;
-  display: grid;
-  place-items: center;
-}
-
-
-
-/* 🔵 Logo (Derecha Arriba) */
+///////////* 🔵 Logo (Derecha Arriba) *///////////
 .logo-section {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
@@ -68,15 +57,24 @@ body, html {
 }
 
 .logo {
-  max-width: 210px;
+  max-width: 250px;
   height: auto;
   padding: 8px 20px;
-  margin-bottom: 10PX;
+  margin-bottom: 4px;
+}
+
+.marca {
+  position: absolute;
+  top: 20px;   /* Ajusta la distancia desde arriba */
+  max-width: 100px;
+  height: auto;
+  margin-top: 40px;
+  filter: grayscale(50%); /* Convierte la imagen a blanco y negro */
 }
 
 
 
-/*  🟢 Formulario (Derecha Abajo)  */
+///////////*  🟢 Formulario (Derecha Abajo)  *///////////
 .form-section {
   grid-column: 2 / 3;
   grid-row: 2 / 3;

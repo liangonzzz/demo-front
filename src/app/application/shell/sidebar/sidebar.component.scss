@@ -1,0 +1,170 @@
+/* Estilo Global */
+body {
+  background-color: #92b8fa !important;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background-color: #ffffff;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease-in-out;
+  width: 60px; /* Sidebar cerrada */
+  overflow: hidden;
+  z-index: 999;
+  box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1); /* Sombra lateral */
+}
+
+/* Sidebar expandida */
+.sidebar.expanded {
+  width: 180px;
+}
+
+/* Sección del logo */
+.logo-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  position: relative; /* Necesario para posicionar la línea correctamente */
+}
+
+/* Línea debajo del logo */
+.logo-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 5px; /* Separación corta del borde izquierdo */
+  right: 5px; /* Separación corta del borde derecho */
+  height: 1px;
+  background-color: var(--gris-5);
+  border-radius: 10px;
+}
+
+/* Imagen del logo (Siempre centrada y sin cambio de tamaño) */
+.logo-section img {
+  max-width: 50px;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Contenido del menú */
+.content-section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ítems del menú */
+.menu-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+  padding: 0 0 0 10px;
+  cursor: pointer;
+}
+
+/* Botones del menú (PrimeNG) */
+.p-button.menu-button {
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9fafc !important; /* Gris claro */
+  color: white !important;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 4px;
+  padding: 0;
+}
+
+/* Interior rosa (ícono) */
+.p-button.menu-button .p-button-label,
+.p-button.menu-button .icon {
+  color: #bff2eb !important;
+}
+
+/* Botón seleccionado */
+.menu-item.selected .p-button.menu-button {
+  background-color: #2C5C8F !important;
+  color: white !important;
+}
+
+/* Ícono del botón seleccionado */
+.menu-item.selected .p-button.menu-button .p-button-label,
+.menu-item.selected .p-button.menu-button .icon {
+  color: white !important;
+}
+
+/* Texto del menú en botón seleccionado */
+.menu-item.selected .item-text {
+  color: #2C5C8F !important;
+}
+
+/* Íconos */
+.icon {
+  font-size: 1rem;
+}
+
+/* Texto del menú */
+.item-text {
+  color: var(--gris-5) !important;
+  font-size: 12px !important;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  max-width: 0;
+  margin-top: 11px;
+  overflow: hidden;
+  transition: opacity 0.3s ease-in-out, max-width 0.3s ease-in-out;
+}
+
+/* Mostrar el texto cuando la sidebar está expandida */
+.sidebar.expanded .item-text {
+  opacity: 1;
+  max-width: 200px;
+}
+
+/* Botón de abrir/cerrar */
+.toggle-section {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Botón de abrir/cerrar (PrimeNG) */
+.p-button.toggle-button {
+  width: 40px;
+  height: 40px;
+  background: rgb(255, 255, 255) !important;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+  font-size: 1.2rem;
+  color: #b9e5e8 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover en el botón */
+.p-button.toggle-button:hover {
+  background-color: #f4fdff !important;
+}
+
+/* FontAwesome */
+.fa {
+  font-size: 1.8rem;
+}

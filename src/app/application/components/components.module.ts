@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 /**PRIMENG */
-
 import { DropdownModule } from 'primeng/dropdown';
 import {CheckboxModule} from 'primeng/checkbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
@@ -26,30 +25,54 @@ import { ToastModule } from 'primeng/toast';
 import { FileUploadModule } from 'primeng/fileupload';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PaginatorModule } from 'primeng/paginator';
 
 /** Componentes */
-import { LoginNuevoComponent } from './Login/login-nuevo/login-nuevo.component';
-import { LoginPrincipalComponent } from './Login/login-principal/login-principal.component';
-import { RestablecerComponent } from './Login/restablecer/restablecer.component';
-import { ConfirmarComponent } from './Login/confirmar/confirmar.component';
-import { ConfiContraComponent } from './Login/confi-contra/confi-contra.component';
-import { ConfiCorreoComponent } from './Login/confi-correo/confi-correo.component';
+  /** Login */
+  import { LoginNuevoComponent } from './Login/login-nuevo/login-nuevo.component';
+  import { RestablecerComponent } from './Login/restablecer/restablecer.component';
+  import { ConfirmarComponent } from './Login/confirmar/confirmar.component';
+  import { ConfiContraComponent } from './Login/confi-contra/confi-contra.component';
+  import { ConfiCorreoComponent } from './Login/confi-correo/confi-correo.component';
+  /** Super-Admin */
+  import { OrganizacionesComponent } from './Super-Admin/organizaciones/organizaciones.component';
+  import { MiTableroComponent } from './Super-Admin/mi-tablero/mi-tablero.component';
+  import { PantallaSuperAdminComponent } from './Super-Admin/pantalla-super-admin/pantalla-super-admin.component';
+  import { FormularioComponent } from './Super-Admin/formulario/formulario.component';
 
 /** Shared */
 import { ButtonComponent } from '../shared/button/button.component';
 import { NotificadorErrorInputDirective } from '../../domain/directives/notificador-error-input/notificador-error-input.directive';
+import { BienvenidoComponent } from '../shared/bienvenido/bienvenido.component';
+
+/** Shell */
+import { SidebarComponent } from '../shell/sidebar/sidebar.component';
+import { NavbarComponent } from '../shell/navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
-    LoginNuevoComponent,
-    LoginPrincipalComponent,
-    RestablecerComponent,
-    ConfirmarComponent,
-    ConfiContraComponent,
-    ConfiCorreoComponent,
+    /** Componentes */
+      /** Login*/
+        LoginNuevoComponent,
+        RestablecerComponent,
+        ConfirmarComponent,
+        ConfiContraComponent,
+        ConfiCorreoComponent,
+      /** Super-Admin */
+        OrganizacionesComponent,
+        MiTableroComponent,
+        PantallaSuperAdminComponent,
+        FormularioComponent,
+
+    /** Shared */
     ButtonComponent,
-    NotificadorErrorInputDirective
+    NotificadorErrorInputDirective,
+    BienvenidoComponent,
+
+    /** Shell */
+    SidebarComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
@@ -73,12 +96,13 @@ import { NotificadorErrorInputDirective } from '../../domain/directives/notifica
     SelectButtonModule,
     InputOtpModule,
     TooltipModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PaginatorModule
   ],
-  exports: [ FloatLabelModule,
-             NotificadorErrorInputDirective,
-             ButtonComponent
-   ],
+    exports: [  FloatLabelModule,
+              NotificadorErrorInputDirective,
+              ButtonComponent
+          ],
   providers: [{ provide: DialogService, useValue: {} },
     MessageService, ConfirmationService,]
 })

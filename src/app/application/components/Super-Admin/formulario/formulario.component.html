@@ -1,0 +1,53 @@
+<div class="table-container" [class.sidebar-expanded]="isSidebarExpanded">
+  <div class="title-rectangle">
+    <h3>Nueva organización</h3>
+  </div>
+  <div class="form-rectangle">
+    <div class="form-container">
+      <form [formGroup]="organizationForm" (ngSubmit)="onSubmit()">
+        <div class="p-field">
+          <label for="businessName">Razón social</label>
+          <input id="businessName" type="text" pInputText formControlName="businessName" placeholder="Ingrese la razón social">
+        </div>
+        <div class="p-field-grid">
+          <div class="p-field">
+            <label for="nit">NIT</label>
+            <input id="nit" type="text" pInputText formControlName="nit" placeholder="Ingrese el número de NIT">
+          </div>
+          <!--<div class="p-field">
+            <label for="rut">RUT</label>
+            <p-fileUpload mode="basic" name="rut" [customUpload]="true" (uploadHandler)="onUpload($event)" chooseLabel="Adjunte el documento" accept=".pdf,.doc,.docx"></p-fileUpload>
+          </div>--->
+        </div>
+
+        <div class="p-field-grid three-columns">
+          <div class="p-field">
+            <label for="email">Correo electrónico</label>
+            <input id="email" type="email" pInputText formControlName="email" placeholder="Ingrese el correo">
+          </div>
+          <div class="p-field">
+            <label for="phone">Teléfono</label>
+            <input id="phone" type="tel" pInputText formControlName="phone" placeholder="Ingrese el número de teléfono">
+          </div>
+          <div class="p-field">
+            <label for="address">Dirección</label>
+            <button class="edit-button">
+              Seleccionar Dirección <i class="fa-solid fa-location-dot"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="p-field">
+          <label for="admin">Administrador GRH</label>
+          <button class="edit-button">
+            Seleccionar Administrador <i class="fa-solid fa-user-plus"></i>
+          </button>
+        </div>
+
+        <div class="p-field">
+          <button pButton type="submit" label="Crear organización"></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

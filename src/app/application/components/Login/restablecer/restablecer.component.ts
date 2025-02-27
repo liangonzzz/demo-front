@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { environment } from '../../../../../environments/environment';
+import { AuthService } from '../../../../infrastructure/core/service/auth.service';
 
 @Component({
   selector: 'app-restablecer',
@@ -9,41 +10,96 @@ import { environment } from '../../../../../environments/environment';
   styleUrl: './restablecer.component.scss'
 })
 export class RestablecerComponent {
-
+  resetForm: FormGroup;
   imgGrhLogo: string = environment.imgGrhLogo;
-  loginForm: FormGroup;
-  showError: boolean = false; // Controla la visibilidad del mensaje de error
-  private errorTimeout: any; // Almacena el timeout para el mensaje de error
+  dataLogo: string = environment.dataLogo;
+  showError: boolean = false;
+  errorMessage: string = '';
+  private errorTimeout: any;
+  token: string = '';
+  showPassword: boolean = false;
+  showConfirmPassword: boolean = false;
 
-  constructor(private router: Router, private fb: FormBuilder) {
-    this.loginForm = this.fb.group({
-      password: ['', Validators.required], // Campo obligatorio
-      passwordConfirm: ['', Validators.required] // Campo obligatorio
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private authService: AuthService
+  ) {
+    // Inicializa el formulario correctamente
+    this.resetForm = this.fb.group({
+      newPassword: ['', [Validators.required, Validators.minLength(8)]],
+      confirmPassword: ['', [Validators.required]]
+    });
+
+    // Obtener el token de la URL
+    this.route.queryParams.subscribe(params => {
+      if (params['token']) {
+        this.token = params['token'];
+      }
     });
   }
 
   onSubmit() {
-    // Verifica si los campos están vacíos
-    if (this.loginForm.invalid) {
-      this.showError = true; // Muestra el mensaje de error
-
-      // Cancela el timeout anterior si existe
-      if (this.errorTimeout) {
-        clearTimeout(this.errorTimeout);
-      }
-
-      // Oculta el mensaje de error después de 1500 ms
-      this.errorTimeout = setTimeout(() => {
-        this.showError = false;
-      }, 1500);
-    } else {
-      this.showError = false; // Oculta el mensaje de error
-      this.router.navigate(['/login-principal']); // Navega al siguiente componente
+    if (this.resetForm.invalid) {
+      this.showErrorMessage('Todos los campos son obligatorios.');
+      return;
     }
+
+    const { newPassword, confirmPassword } = this.resetForm.value;
+
+    if (newPassword !== confirmPassword) {
+      this.showErrorMessage('Las contraseñas no coinciden.');
+      return;
+    }
+
+    if (!this.token) {
+      this.showErrorMessage('Token inválido o expirado.');
+      return;
+    }
+
+    // Enviar al backend con el formato correcto
+    const payload = {
+      token: this.token,
+      newPassword: newPassword,
+      confirmPassword: confirmPassword
+    };
+
+    this.authService.resetPassword(payload).subscribe({
+      next: () => {
+        console.log('✅ Contraseña restablecida con éxito.');
+        this.router.navigate(['/confi-contra']);
+      },
+      error: (err) => {
+        console.error('❌ Error al restablecer la contraseña:', err);
+        this.showErrorMessage('No se pudo restablecer la contraseña. Inténtalo de nuevo.');
+      }
+    });
   }
 
   navigateToLoginRestablecer() {
     this.router.navigate(['/login-restablecer']);
   }
 
+  private showErrorMessage(message: string) {
+    this.errorMessage = message;
+    this.showError = true;
+
+    if (this.errorTimeout) {
+      clearTimeout(this.errorTimeout);
+    }
+
+    this.errorTimeout = setTimeout(() => {
+      this.showError = false;
+      this.errorMessage = '';
+    }, 2000);
+  }
+
+  togglePasswordVisibility(field: string) {
+    if (field === 'password') {
+      this.showPassword = !this.showPassword;
+    } else if (field === 'confirmPassword') {
+      this.showConfirmPassword = !this.showConfirmPassword;
+    }
+  }
 }

@@ -9,10 +9,12 @@ import { environment } from '../../../../../environments/environment';
 })
 export class ConfiContraComponent {
 
-  imgGrhLogo: string = environment.imgGrhLogo;
+    imgGrhLogo: string = environment.imgGrhLogo;
+    dataLogo: string = environment.dataLogo;
 
-  constructor(private router: Router) {}
-  redirectToLogin() {
-    this.router.navigate(['/login-principal']);
+    constructor(private router: Router) {}
+    redirectToLogin() {
+      this.router.navigate(['/login-nuevo']);
+    }
   }
-}
+

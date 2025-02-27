@@ -1,0 +1,90 @@
+<body>
+  <div class="main-content">
+  <!-- Rectángulo grande superior con título y fecha -->
+  <app-bienvenido></app-bienvenido>
+
+  <div class="squares-container">
+    <!-- Primera fila de 4 cuadrados -->
+    <div class="squares-row">
+      <!-- Cuadrado 1: Total de organizaciones registradas -->
+      <div class="square square-1">
+        <div class="number">132</div>
+        <div class="text">organizaciones registradas</div>
+        <button class="view-button" (click)="onViewAllOrganizations()">Ver todas las organizaciones</button>
+      </div>
+
+      <!-- Cuadrados 2, 3 y 4: Organizaciones dinámicas -->
+      <div *ngFor="let org of organizations | slice:0:3" class="square square-2">
+        <div class="inner-rectangle">
+          <img [src]="org.logo" [alt]="org.name" class="inner-image" />
+        </div>
+        <div class="divider"></div>
+        <div class="info">
+          <div class="title">{{ org.name }}</div>
+          <div class="contact">Tel: {{ org.phone }}</div>
+          <div class="contact">Correo: {{ org.email }}</div>
+        </div>
+        <div class="small-squares">
+          <div class="small-square">
+            <div class="content">
+              <span class="number">{{ org.employees }}</span>
+              <span class="text">Funcionarios</span>
+            </div>
+          </div>
+          <div class="small-square">
+            <div class="content">
+              <span class="number">{{ org.candidates }}</span>
+              <span class="text">Candidatos</span>
+            </div>
+          </div>
+        </div>
+        <button class="edit-button" (click)="onEditOrganization(org.id)">
+          <i class="fa fa-pen"></i> Editar organización
+        </button>
+      </div>
+    </div>
+
+    <!-- Segunda fila de 4 cuadrados -->
+    <div class="squares-row">
+      <div class="square empty-square"></div>
+      <div *ngFor="let org of organizations | slice:3:5" class="square square-2">
+        <div class="inner-rectangle">
+          <img [src]="org.logo" [alt]="org.name" class="inner-image" />
+        </div>
+        <div class="divider"></div>
+        <div class="info">
+          <div class="title">{{ org.name }}</div>
+          <div class="contact">Tel: {{ org.phone }}</div>
+          <div class="contact">Correo: {{ org.email }}</div>
+        </div>
+        <div class="small-squares">
+          <div class="small-square">
+            <div class="content">
+              <span class="number">{{ org.employees }}</span>
+              <span class="text">Funcionarios</span>
+            </div>
+          </div>
+          <div class="small-square">
+            <div class="content">
+              <span class="number">{{ org.candidates }}</span>
+              <span class="text">Candidatos</span>
+            </div>
+          </div>
+        </div>
+        <button class="edit-button" (click)="onEditOrganization(org.id)">
+          <i class="fa fa-pen"></i> Editar organización
+        </button>
+      </div>
+      <div class="square square-8">
+        <button class="add-button" (click)="onAddOrganization()">
+          <div class="circle">
+            <i class="fa fa-plus"></i>
+          </div>
+          <span class="add-text">Agregar organización</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+

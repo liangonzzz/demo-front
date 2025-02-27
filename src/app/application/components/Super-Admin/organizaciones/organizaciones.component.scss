@@ -1,0 +1,414 @@
+/* Reglas generales */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.table-container {
+  padding: 20px 22px 0 23px;
+  max-width: 100%;
+  margin: auto 0;
+  width: 100%;
+  box-sizing: border-box;
+  &.sidebar-expanded {
+    max-width: calc(100% - 240px);
+  }
+}
+
+/* Primer rectángulo: Header */
+.header-rectangle {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  width: 100%;
+  box-sizing: border-box;
+
+  h3 {
+    flex: 0 0 75%;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--azul);
+    margin-left: 28px;
+  }
+
+  .add-button {
+    flex: 0 0 20% !important;
+    background-color: #ffffff !important;
+    color: var(--azul) !important;
+    padding: 8px 16px !important;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 1 !important;
+    margin-bottom: 11px !important;
+    border: 1px solid var(--azul) !important;
+    height: 30px;
+    gap: 8px !important;
+
+    &:hover {
+      background-color: #f7fbff !important;
+    }
+  }
+}
+
+/* Segundo rectángulo: Search */
+.search-rectangle {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin-bottom: 16px;
+  height: 44px;
+  width: 100%;
+  box-sizing: border-box;
+
+  .search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    height: 30px;
+    width: 100%;
+  }
+
+  .search-icon {
+    position: relative;
+    flex: 0 0 85%;
+    height: 100%;
+
+    i {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gris-2);
+      font-weight: 600;
+      font-size: 15px;
+
+    }
+
+    input {
+      padding-left: 48px;
+      width: 100%;
+      border: 1px solid var(--gris-3);
+      border-radius: 4px;
+      height: 100%;
+      font-size: 14px;
+      box-sizing: border-box;
+      line-height: 31px;
+    }
+  }
+
+  .search-button {
+    flex: 0 0 12%;
+    height: 30px;
+    background-color: #ffffff !important;
+    border: 1px solid var(--azul) !important;
+    color: var(--azul) !important;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 1;
+    margin-bottom: 12px;
+
+    &:hover {
+      background-color: #0057a3;
+    }
+  }
+}
+
+/* Tercer rectángulo: Table */
+.table-rectangle {
+  background-color: #ffffff;
+  border-radius: 8px; /* Bordes redondeados para el contenedor de la tabla */
+  overflow: hidden; /* Esto asegura que el contenido no se desborde de las esquinas redondeadas */
+  margin-bottom: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.table-rectangle table {
+  width: 100%;
+  border-collapse: separate; /* Cambiado de collapse a separate para permitir border-radius */
+  border-spacing: 0; /* Elimina espacios entre celdas */
+  table-layout: fixed;
+  height: 100%;
+  flex: 1;
+  background-color: #ffffff;
+}
+
+/* Estilo para las celdas en las esquinas superiores */
+.table-rectangle thead th:first-child {
+  border-top-left-radius: 8px;
+}
+
+.table-rectangle thead th:last-child {
+  border-top-right-radius: 8px;
+}
+
+/* Estilo para las celdas en las esquinas inferiores */
+.table-rectangle tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+
+.table-rectangle tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
+}
+
+.table-rectangle thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.table-rectangle thead th {
+  padding: 8px 8px;
+  background-color: #ffffff;
+  color: var(--gris-2);
+  font-weight: 600;
+  text-align: left;
+  border-bottom: 8px solid #fafafa;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 10px; /* Aumentado de 13px a 15px */
+  line-height: 3; /* Aumentado ligeramente para mejor legibilidad */
+  height: 39px;/* Añadido para dar más espacio vertical */
+}
+
+.table-rectangle thead th i.fa-sort {
+  margin-left: 8px; /* Lo empuja hacia la derecha */
+  font-size: 8px; /* Ajusta el tamaño */
+  color: #7a7a7a; /* Color del icono */
+
+}
+/* Ancho de columnas según porcentajes especificados */
+.table-rectangle thead th:nth-child(1) { width: 13%; } /* Logo */
+.table-rectangle thead th:nth-child(2) { width: 10%; } /* Nombre */
+.table-rectangle thead th:nth-child(3) { width: 8%; } /* Teléfono */
+.table-rectangle thead th:nth-child(4) { width: 13%; } /* Correo */
+.table-rectangle thead th:nth-child(5) { width: 11%; } /* Administración */
+.table-rectangle thead th:nth-child(6) { width: 9%; } /* Funcionarios */
+.table-rectangle thead th:nth-child(7) { width: 9%; } /* Candidatos */
+.table-rectangle thead th:nth-child(8) { width: 14%; } /* Funcionalidades */
+
+.table-rectangle tbody {
+  display: table-row-group;
+}
+
+/* Líneas grises entre filas - MODIFICADO para ser más notable */
+.table-rectangle tbody tr {
+  position: relative;
+}
+
+.table-rectangle tbody tr:not(:last-child) td {
+  border-bottom: 1px solid var(--gris-5); /* Línea gris más oscura y notable entre filas */
+}
+
+.table-rectangle tbody tr:last-child {
+  border-bottom: none; /* Eliminar borde en la última fila */
+}
+
+.table-rectangle tbody td {
+  padding: 4px 8px;
+  font-size: 12px;
+  color: #333;
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  height: 48px;
+}
+
+.table-rectangle .logo-img {
+  width: 150px;
+  height: 20px;
+  border-radius: 4px;
+  object-fit: contain;
+}
+
+/* NUEVO: Estilos para botones circulares con usuario */
+.user-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px; /* Reducido de manera significativa */
+}
+
+.user-circle-button {
+  width: 24px !important; /* Ligeramente más pequeño */
+  height: 24px !important; /* Ligeramente más pequeño */
+  border-radius: 50% !important;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  background-color: #f7f9fd !important;
+  color: #7ab2d3 !important;
+  overflow: hidden !important;
+  transition: background-color 0.3s ease !important;
+  margin: 0 !important;
+  font-size: 9px;
+}
+.user-circle-button:nth-child(2) {
+  font-size: 14px;
+}
+
+
+/* Estilos anteriores */
+.table-rectangle .action-button {
+  background-color: #ffffff !important;
+  border: 1px solid var(--azul) !important;
+  color: var(--azul) !important;
+  padding: 2px 8px;
+  font-size: 13px;
+  height: 22px;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.table-rectangle .action-button:hover {
+  background-color: #f7fbff !important;
+}
+
+/* Cuarto rectángulo: Footer */
+.footer-rectangle {
+  border-radius: 4px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  height: auto; /* Cambiado de 20px a auto para acomodar el paginador */
+  min-height: 50px; /* Añadido para asegurar espacio para los elementos */
+
+  .export-button {
+    background-color: #ffffff !important;
+    border: 1.5px solid var(--azul) !important;
+    color: var(--azul) !important;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 14%;
+    height: 32px;
+    box-sizing: border-box;
+    margin-top: 0; /* Cambiado de 20px a 0 */
+    font-size: 16px !important;
+    gap: 5px;
+
+    &:hover {
+      background-color: #f7fbff !important;
+    }
+  }
+
+  /* MODIFICADO: Estilos para el paginador - Cambio de verde a rojo */
+  ::ng-deep .p-paginator {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+
+    .p-paginator-pages .p-paginator-page {
+      color: var(--azul) !important;
+      min-width: 32px !important;
+      height: 20px !important;
+      margin: 0;
+
+      &.p-highlight {
+        background-color: #ffffff !important; /* Cambiado a rojo */
+        color: #ffffff !important;
+      }
+    }
+
+    .p-paginator-first,
+    .p-paginator-prev,
+    .p-paginator-next,
+    .p-paginator-last {
+      color: var(--azul) !important;
+      min-width: 32px;
+      height: 32px;
+
+      &:not(.p-disabled):hover {
+        background-color: #f7fbff !important;
+      }
+
+      &.p-disabled {
+        opacity: 0.5;
+      }
+    }
+
+    .p-dropdown {
+      height: 32px;
+
+      .p-dropdown-label {
+        padding-right: 24px;
+      }
+    }
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .table-container {
+    padding: 16px;
+    margin: 16px auto 0;
+  }
+
+  .header-rectangle {
+    flex-direction: column;
+    height: auto;
+    padding: 8px;
+
+    .add-button {
+      width: 100%;
+      margin: 8px 0;
+    }
+  }
+
+  .search-rectangle {
+    height: auto;
+    padding: 8px;
+
+    .search-wrapper {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .search-icon {
+      flex: 0 0 100%;
+    }
+
+    .search-button {
+      width: 100%;
+      margin: 8px 0;
+    }
+  }
+
+  .table-rectangle {
+    height: auto;
+  }
+
+  .footer-rectangle {
+    flex-direction: column;
+    height: auto;
+    gap: 8px;
+
+    .export-button {
+      width: 100%;
+      margin: 8px 0;
+    }
+
+    ::ng-deep .p-paginator {
+      width: 100%;
+      justify-content: center;
+      margin: 8px 0;
+    }
+  }
+}

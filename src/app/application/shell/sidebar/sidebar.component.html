@@ -1,0 +1,23 @@
+<div class="sidebar" [class.expanded]="isSidebarOpen">
+  <!-- Logo Section -->
+  <div class="logo-section">
+    <img [src]="GRHcorto" alt="logo">
+  </div>
+
+  <!-- Content Section -->
+  <div class="content-section">
+    <div *ngFor="let item of menuItems; let i = index" class="menu-item" [class.selected]="selectedItem === i" (click)="selectItem(i)">
+      <button pButton class="menu-button p-button-rounded p-button-text">
+        <i class="icon" [ngClass]="item.icon"></i>
+      </button>
+      <span class="item-text" *ngIf="isSidebarOpen">{{ item.name }}</span>
+    </div>
+  </div>
+
+  <!-- Toggle Button Section -->
+  <div class="toggle-section">
+    <button pButton class="toggle-button p-button-rounded p-button-text" (click)="toggleSidebar()">
+      <i class="fas" [ngClass]="{ 'fa-chevron-left': isSidebarOpen, 'fa-chevron-right': !isSidebarOpen }"></i>
+    </button>
+  </div>
+</div>

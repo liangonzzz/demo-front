@@ -145,7 +145,7 @@ html {
   i {
     position: absolute;
     left: 10px;
-    top: 29px; // Posición fija desde arriba
+    top: 28px; // Posición fija desde arriba
     font-size: 16px;
     color: var(--gris-5);
     z-index: 1;
@@ -159,6 +159,15 @@ html {
     color: var(--gris-5);
     z-index: 1;
   }
+  .password-toggle {
+    position: absolute;
+    right: 36px;
+    top: 1%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--gris-5);
+    transition: color 0.3s ease;
+    z-index: 2;}
 }
 
 // Botón
@@ -167,22 +176,29 @@ html {
 }
 
 .error-container {
-  display: none; /* Oculta el contenedor por defecto */
-  transition: all 0.4s ease;
-}
+  display: none; /* Oculta por defecto */
+  width: 90%; /* Ocupará el 90% del ancho del padre */
+  max-width: 300px; /* Ancho máximo */
+  min-width: 150px; /* Ancho mínimo */
+  margin: 0 auto 0; /* Centrado horizontal */
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
 
-.error-container:has(.error-text) {
-  display: block; /* Muestra el contenedor cuando tiene un error */
-  min-height: 8px;
-  margin-top: 12px;
+  &.show {
+    display: block; /* Muestra el contenedor cuando hay error */
+    height: auto;
+    min-height: 24px;
+  }
 }
 
 .error-text {
-  color: red;
+  color: #dc3545;
   text-align: center;
   font-size: 12px;
   margin: 0;
-  padding: 4px 0;
+  padding: 4px 8px;
+  background-color: rgba(220, 53, 69, 0.1);
+  border-radius: 4px;
   transform: translateY(-5px);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
@@ -250,7 +266,7 @@ html {
   left: 2.5px;
   font-size: 9px;
   color: white;
-  margin-top: 2.4px;
+  margin-top: 2px;
 }
 
 /* Estilos para el enlace */
@@ -263,6 +279,7 @@ html {
 .checkbox-item a:hover {
   text-decoration: underline;
 }
+
 
 // Media queries para responsividad
 @media (max-width: 768px) {

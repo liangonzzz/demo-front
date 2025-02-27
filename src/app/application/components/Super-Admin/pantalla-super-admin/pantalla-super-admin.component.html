@@ -1,0 +1,18 @@
+<div class="layout" [class.sidebar-expanded]="isSidebarExpanded">
+  <!-- Sidebar -->
+  <app-sidebar (sidebarStateChange)="onSidebarStateChange($event)"></app-sidebar>
+
+  <!-- Contenedor principal -->
+  <div class="main-container">
+    <!-- Navbar -->
+    <app-navbar [isExpanded]="isSidebarExpanded"></app-navbar>
+
+    <!-- Contenido -->
+    <div class="content">
+      <app-mi-tablero *ngIf="mostrarTablero"></app-mi-tablero>
+      <app-organizaciones *ngIf="!mostrarTablero"></app-organizaciones>
+    </div>
+
+  </div>
+</div>
+

@@ -1,11 +1,9 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from '../../../../../environments/environment';
-import { validateForm } from '../../..//../domain/services/validate-form/validate-form';
-
-// prime
-
+import { validateForm } from '../../../../domain/services/validate-form/validate-form';
+import { AuthService } from '../../../../infrastructure/core/service/auth.service';
 
 @Component({
   selector: 'app-login-nuevo',
@@ -14,39 +12,84 @@ import { validateForm } from '../../..//../domain/services/validate-form/validat
 })
 export class LoginNuevoComponent implements OnInit {
   loginForm!: FormGroup;
-  showError: boolean = false; // Controla la visibilidad del mensaje de error
+  showError: boolean = false;
+  errorMessage: string = '';
   imgGrhLogo: string = environment.imgGrhLogo;
   dataLogo: string = environment.dataLogo;
+  showPassword: boolean = false;
 
-  private errorTimeout: any; // Almacena el timeout para el mensaje de error
+  private errorTimeout: any;
 
-  constructor(private router: Router, private fb: FormBuilder, private cdr: ChangeDetectorRef) {}
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private cdr: ChangeDetectorRef
+  ) { }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
       documentNumber: ['', Validators.required],
       password: ['', Validators.required],
+      politicaSeguridad: [false, Validators.requiredTrue],
+      datosPersonales: [false, Validators.requiredTrue],
+      canalDigital: [false, Validators.requiredTrue]
     });
-   }
+  }
 
-  getFormValidationErrors() {
-    const errors: any = {};
-    Object.keys(this.loginForm.controls).forEach((key) => {
-      const controlErrors = this.loginForm.get(key)?.errors;
-      if (controlErrors) {
-        errors[key] = controlErrors;
-      }
-    });
-    return errors;
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 
   onSubmit() {
-
-    if (this.loginForm.valid) {
-      this.router.navigate(['/restablecer']); // Navega al siguiente componente
-    } else {
-      validateForm(this.loginForm);
+    // Verificar si los checkboxes están marcados
+    if (!this.areCheckboxesChecked()) {
+      this.showErrorMessage('Debe aceptar todas las políticas para continuar');
+      return;
     }
+
+    // Verificar si los campos están completos
+    if (!this.loginForm.get('documentNumber')?.value || !this.loginForm.get('password')?.value) {
+      this.showErrorMessage('Por favor complete todos los campos');
+      return;
+    }
+
+    const credentials = {
+      documentNumber: this.loginForm.get('documentNumber')?.value,
+      password: this.loginForm.get('password')?.value
+    };
+
+    this.authService.login(credentials).subscribe({
+      next: (response) => {
+        console.log('Login exitoso:', response);
+        this.router.navigate(['/Superadmin']);
+      },
+      error: (error) => {
+        console.error('Error en el login:', error);
+        this.showErrorMessage('Usuario o contraseña incorrectos');
+      }
+    });
+  }
+
+  private areCheckboxesChecked(): boolean {
+    return this.loginForm.get('politicaSeguridad')?.value &&
+      this.loginForm.get('datosPersonales')?.value &&
+      this.loginForm.get('canalDigital')?.value;
+  }
+
+  private showErrorMessage(message: string) {
+    this.errorMessage = message;
+    this.showError = true;
+
+    if (this.errorTimeout) {
+      clearTimeout(this.errorTimeout);
+    }
+
+    this.errorTimeout = setTimeout(() => {
+      this.showError = false;
+      this.errorMessage = '';
+      this.cdr.detectChanges();
+    }, 1500);
   }
 
   navigateToLoginRestablecer() {

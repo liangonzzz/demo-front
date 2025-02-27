@@ -9,6 +9,7 @@ import { environment } from '../../../../../environments/environment';
 })
 export class ConfiCorreoComponent {
   imgGrhLogo: string = environment.imgGrhLogo;
+  dataLogo: string = environment.dataLogo;
 
   constructor(private router: Router) {}
   redirectToLogin() {

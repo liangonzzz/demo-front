@@ -1,0 +1,420 @@
+
+/* ==============================
+   1. Rectángulo principal
+   ============================== */
+   .main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    }
+
+  .large-rectangle {
+    width: 100%;
+    height: auto;
+    min-height: 80px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    border-radius: 16px;
+    transition: width 0.3s ease-in-out;
+    margin-top: 30px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .title {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .hello {
+    font-weight: 200;
+    color: var(--azul);
+  }
+
+  .admin {
+    font-weight: 600;
+    color: var(--azul);
+  }
+
+  .date {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gris-3);
+    margin: 0;
+    margin-top: 4px;
+  }
+
+  /* ==============================
+     2. Fila 1 (primeros 4 cuadrados)
+     ============================== */
+  .squares-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .squares-row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .square {
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+    background-color: #e74c3c;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+
+  .square-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    background-color: #ffffff;
+    padding: 15px 10px;
+  }
+
+  .number {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--azul);
+    margin-top: 14px;
+  }
+
+  .text {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--azul);
+  }
+
+  .view-button {
+    width: 90%;
+    max-width: 180px;
+    height: 40px;
+    background-color: var(--azul);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 2px;
+  }
+
+  .view-button:hover {
+    background-color: var(--azul-hover);
+    color: var(--white);
+  }
+
+  .square-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    background-color: #ffffff;
+    width: 100%;
+  }
+
+  /* Ajuste para que inner-rectangle sea un cuadrado */
+  .inner-rectangle {
+    width: 140px; /* Tamaño fijo para el cuadrado */
+    height: 70px; /* Igual ancho y alto para hacerlo cuadrado */
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+
+  .inner-image {
+    width: 100%; /* Ocupa todo el contenedor */
+    height: 100%; /* Ocupa todo el contenedor */
+    object-fit: contain; /* Mantiene proporciones sin deformarse */
+    object-position: center; /* Centra la imagen */
+    display: block;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--gris-5);
+  }
+
+  .info {
+    text-align: left;
+    width: 100%;
+  }
+
+  .info .title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--azul);
+  }
+
+  .info .contact {
+    font-size: 8px;
+    font-weight: 400;
+    color: var(--gris-2);
+  }
+
+  .small-squares {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 6px;
+    margin: 5px 0;
+  }
+
+  .small-square {
+    width: calc(50% - 3px);
+    max-width: calc(50% - 3px);
+    height: 24px;
+    background-color: #f9fafc;
+    color: var(--azul);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .small-square .number {
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  .small-square .text {
+    font-size: 8px;
+    font-weight: 300;
+    margin-left: 5px;
+    white-space: nowrap;
+  }
+
+  .edit-button {
+    width: 100%;
+    height: 24px;
+    background-color: var(--white);
+    color: var(--azul);
+    border: 1px solid var(--azul);
+    border-radius: 4px;
+    padding: 6px;
+    font-size: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 5px;
+  }
+
+  .edit-button:hover {
+    background-color: var(--azul);
+    color: var(--white) !important;
+  }
+
+  .edit-button i {
+    margin-right: 8px;
+    font-size: 10px;
+    color: #7dbade;
+  }
+
+  .edit-button:hover i {
+    color: var(--white);
+  }
+
+  /* ==============================
+     3. Fila 2 (más organizaciones y espacio vacío)
+     ============================== */
+  .empty-square {
+    visibility: hidden;
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+    box-sizing: border-box;
+  }
+
+  /* ==============================
+     4. Cuadrado de agregar (8)
+     ============================== */
+  .square-8 {
+    background-color: transparent;
+    color: #333;
+    border: 2px dashed var(--azul);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 150px;
+  }
+
+  .add-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .circle {
+    width: 40px;
+    height: 40px;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .circle i {
+    color: var(--azul);
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .add-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--azul);
+  }
+
+  .add-button:hover .circle {
+    background-color: var(--azul);
+  }
+
+  .add-button:hover .circle i {
+    color: var(--white);
+  }
+
+  /* Media Queries */
+  @media (min-width: 576px) {
+    .main-content {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .small-squares {
+      justify-content: center;
+      gap: 6px;
+    }
+    .small-square {
+      width: calc(50% - 3px);
+      max-width: calc(50% - 3px);
+      height: 24px;
+    }
+  }
+
+  @media (min-width: 843px) {
+    .main-content {
+      padding-left: 24px;
+      padding-right: 24px;
+      max-width: calc(100% - 48px);
+    }
+    .large-rectangle {
+      border-radius: 24px;
+      padding: 0 40px;
+      margin-top: 60px;
+      height: 80px;
+    }
+    .title {
+      font-size: 18px;
+    }
+    .squares-container {
+      gap: 40px;
+    }
+    .squares-row {
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      gap: 20px;
+    }
+    .square {
+      width: calc(25% - 15px);
+      height: 150px;
+    }
+    .empty-square {
+      width: calc(25% - 15px);
+      height: 150px;
+      visibility: hidden;
+    }
+    .small-squares {
+      gap: 6px;
+    }
+    .small-square {
+      width: calc(50% - 3px);
+      max-width: calc(50% - 3px);
+      height: 24px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .main-content {
+      max-width: 1200px;
+    }
+    .square {
+      width: calc(25% - 15px);
+    }
+    .square-2 {
+      width: calc(25% - 15px);
+      padding: 10px;
+    }
+    .empty-square {
+      width: calc(25% - 15px);
+    }
+    .small-squares {
+      gap: 6px;
+    }
+    .small-square {
+      width: calc(50% - 3px);
+      max-width: calc(50% - 3px);
+      height: 24px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .main-content {
+      max-width: 1200px;
+    }
+    .square {
+      width: calc(25% - 15px);
+    }
+    .empty-square {
+      width: calc(25% - 15px);
+    }
+    .small-squares {
+      gap: 6px;
+    }
+    .small-square {
+      width: calc(50% - 3px);
+      max-width: calc(50% - 3px);
+      height: 24px;
+    }
+  }

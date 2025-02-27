@@ -5,6 +5,12 @@ export const environment = {
   //Login
   imgGrhLogo: 'assets/images/logo_grh.svg',
   dataLogo: 'assets/images/datalogo.png',
+  fotoPerfil: 'assets/images/foto.jpg',
+  gelsa: 'assets/images/gelsalogo.png',
+  youtube: 'assets/images/youtube.png',
+  ubisoft: 'assets/images/Ubisoft_logo1.svg',
+  pagatodo: 'assets/images/pagatodo.png',
+  GRHcorto : 'assets/images/logo_grh_vh.svg',
 
 
 

@@ -2,15 +2,14 @@
   <!-- Sección de la imagen (Cuadro Rojo) -->
   <div class="image-section">
     <div class="overlay"></div>
-    <div>
-      <img [src]="imgGrhLogo" alt="marca" class="marca">
-    </div>
   </div>
 
   <!-- Sección del logo (Cuadro Azul) -->
   <div class="logo-section">
-    <img [src]="imgGrhLogo"imgGrhLogo alt="Logo" class="logo">
+    <img [src]="dataLogo" alt="Logo" class="logo">
+    <img [src]="imgGrhLogo" alt="marca" class="marca">
   </div>
+
 
   <!-- Sección del formulario (Cuadro Verde) -->
   <div class="form-section">
@@ -29,6 +28,12 @@
             formControlName="email" />
         </span>
       </div>
+
+      <!-- Contenedor de mensaje de error -->
+      <div class="error-container" [ngClass]="{'show': errorMessage}">
+        <p class="error-text" *ngIf="errorMessage">{{ errorMessage }}</p>
+      </div>
+
 
       <app-button etiqueta="Iniciar Sesión" tipo="submit"></app-button>
 
