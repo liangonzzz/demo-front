@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 /**PRIMENG */
 import { DropdownModule } from 'primeng/dropdown';
-import {CheckboxModule} from 'primeng/checkbox';
+import { CheckboxModule } from 'primeng/checkbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { CalendarModule } from 'primeng/calendar';
 import { ButtonModule } from 'primeng/button';
-import {MessagesModule} from 'primeng/messages';
-import {MessageModule} from 'primeng/message';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 import { DialogModule } from 'primeng/dialog';
 import { DialogService } from 'primeng/dynamicdialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -26,6 +27,12 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PaginatorModule } from 'primeng/paginator';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { BadgeModule } from 'primeng/badge';
+import { KnobModule } from 'primeng/knob';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
+
 
 /** Componentes */
   /** Login */
@@ -37,13 +44,19 @@ import { PaginatorModule } from 'primeng/paginator';
   /** Super-Admin */
   import { OrganizacionesComponent } from './Super-Admin/organizaciones/organizaciones.component';
   import { MiTableroComponent } from './Super-Admin/mi-tablero/mi-tablero.component';
-  import { PantallaSuperAdminComponent } from './Super-Admin/pantalla-super-admin/pantalla-super-admin.component';
+  import { PantallaSuperAdminComponent } from './pantalla-principal/pantalla-super-admin/pantalla-super-admin.component';
   import { FormularioComponent } from './Super-Admin/formulario/formulario.component';
+  /** Candidato */
+  import { MiTableroCandiComponent } from './candidato/mi-tablero-candi/mi-tablero-candi.component';
+  import { MiProgresoComponent } from './candidato/mi-progreso/mi-progreso.component';
 
 /** Shared */
 import { ButtonComponent } from '../shared/button/button.component';
 import { NotificadorErrorInputDirective } from '../../domain/directives/notificador-error-input/notificador-error-input.directive';
 import { BienvenidoComponent } from '../shared/bienvenido/bienvenido.component';
+import { ProgressCircleComponent } from '../shared/progress-circle/progress-circle.component';
+import { ProgressBarComponent } from '../shared/progress-bar/progress-bar.component';
+
 
 /** Shell */
 import { SidebarComponent } from '../shell/sidebar/sidebar.component';
@@ -64,11 +77,16 @@ import { NavbarComponent } from '../shell/navbar/navbar.component';
         MiTableroComponent,
         PantallaSuperAdminComponent,
         FormularioComponent,
+      /** Candidato */
+        MiTableroCandiComponent,
+        MiProgresoComponent,
 
     /** Shared */
     ButtonComponent,
     NotificadorErrorInputDirective,
     BienvenidoComponent,
+    ProgressCircleComponent,
+    ProgressBarComponent,
 
     /** Shell */
     SidebarComponent,
@@ -76,6 +94,7 @@ import { NavbarComponent } from '../shell/navbar/navbar.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     DropdownModule,
     CheckboxModule,
     RadioButtonModule,
@@ -97,11 +116,18 @@ import { NavbarComponent } from '../shell/navbar/navbar.component';
     InputOtpModule,
     TooltipModule,
     ReactiveFormsModule,
-    PaginatorModule
+    PaginatorModule,
+    ProgressSpinnerModule,
+    BadgeModule,
+    KnobModule,
+    ProgressBarModule,
+    ConfirmPopupModule
+
   ],
     exports: [  FloatLabelModule,
               NotificadorErrorInputDirective,
-              ButtonComponent
+              ButtonComponent,
+
           ],
   providers: [{ provide: DialogService, useValue: {} },
     MessageService, ConfirmationService,]

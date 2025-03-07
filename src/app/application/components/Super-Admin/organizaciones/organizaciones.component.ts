@@ -18,8 +18,8 @@ export class OrganizacionesComponent implements OnInit {
   // Arreglo original y filtrado
   organizations: any[] = [
     {
-      name: 'DataCenter',
       logo: '../../assets/images/datalogo.png',
+      company_name: 'DataCenter',
       phone: '123456789',
       email: 'contact@datacenter.com',
       admin: 'Andrés Hernández',
@@ -27,8 +27,8 @@ export class OrganizacionesComponent implements OnInit {
       candidates: 14
     },
     {
-      name: 'Gelsa',
       logo: '../../assets/images/gelsalogo.png',
+      company_name: 'Gelsa',
       phone: '987654321',
       email: 'info@gelsa.com',
       admin: 'David Gómez',
@@ -36,8 +36,8 @@ export class OrganizacionesComponent implements OnInit {
       candidates: 25
     },
     {
-      name: 'PagaTodo',
       logo: '../../assets/images/pagatodo.png',
+      company_name: 'PagaTodo',
       phone: '456789123',
       email: 'soporte@pagatodo.com',
       admin: 'Pedro Ramírez',
@@ -45,8 +45,8 @@ export class OrganizacionesComponent implements OnInit {
       candidates: 10
     },
     {
-      name: 'Ubisoft',
       logo: '../../assets/images/Ubisoft_logo1.svg',
+      company_name: 'Ubisoft',
       phone: '321654987',
       email: 'support@ubisoft.com',
       admin: 'Carlos Mendoza',
@@ -54,8 +54,8 @@ export class OrganizacionesComponent implements OnInit {
       candidates: 18
     },
     {
-      name: 'YouTube',
       logo: '../../assets/images/youtube.png',
+      company_name: 'YouTube',
       phone: '654321987',
       email: 'contact@youtube.com',
       admin: 'Sofía López',
@@ -63,8 +63,8 @@ export class OrganizacionesComponent implements OnInit {
       candidates: 12
     },
     {
-      name: 'Ubisoft',
       logo: '../../assets/images/Ubisoft_logo1.svg',
+      company_name: 'Ubisoft',
       phone: '321654987',
       email: 'support@ubisoft.com',
       admin: 'Carlos Mendoza',
@@ -72,8 +72,8 @@ export class OrganizacionesComponent implements OnInit {
       candidates: 18
     },
     {
-      name: 'YouTube',
       logo: '../../assets/images/youtube.png',
+      company_name: 'YouTube',
       phone: '654321987',
       email: 'contact@youtube.com',
       admin: 'Sofía López',

@@ -1,0 +1,29 @@
+<div class="layout" [class.sidebar-expanded]="isSidebarExpanded">
+  <!-- Sidebar -->
+  <app-sidebar (sidebarStateChange)="onSidebarStateChange($event)"></app-sidebar>
+
+  <!-- Contenedor principal -->
+  <div class="main-container">
+    <!-- Navbar -->
+    <app-navbar [isExpanded]="isSidebarExpanded"></app-navbar>
+
+    <!-- Contenido -->
+    <div class="content">
+      <!-- Mi tablero (índice 0) -->
+      <app-mi-tablero *ngIf="selectedMenu === 0"></app-mi-tablero>
+
+      <!-- Organizaciones (índice 1) -->
+      <app-organizaciones *ngIf="selectedMenu === 1"></app-organizaciones>
+
+      <!-- Mi tablero candi. (índice 2) -->
+      <app-mi-tablero-candi *ngIf="selectedMenu === 2"></app-mi-tablero-candi>
+
+      <!-- Mi Progreso (índice 3) - sin implementar todavía -->
+      <app-mi-progreso *ngIf="selectedMenu === 3"></app-mi-progreso>
+
+      <!-- Alerta (índice 4) - sin implementar todavía -->
+      <app-formulario *ngIf="selectedMenu === 4"></app-formulario>
+
+    </div>
+  </div>
+</div>

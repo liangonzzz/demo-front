@@ -1,0 +1,180 @@
+/* Estilos para .table-container y sus modificadores */
+.table-container {
+  padding: 20px 24px 0 24px;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.table-container.sidebar-expanded {
+  max-width: calc(100% - 240px);
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+/* Sección Perfil (Izquierda) */
+.perfil {
+  width: 280px;
+  height: 100%;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+}
+
+.perfil-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.perfil-content .avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.perfil-content h2 {
+  margin: 0;
+  font-size: 14px;
+  color: var(--black);
+}
+
+.perfil-content .position {
+  margin: 6px 20px 4px 20px;
+  font-size: 11px;
+  color: var(--gris-2);
+}
+
+.perfil-content .contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 4px;
+}
+
+.perfil-content .contact-info small {
+  font-size: 9px;
+  color: var(--checkbox);
+}
+
+.perfil-content .cv {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--azul);
+  margin-bottom: 10px;
+  background-color: #f9fafc;
+  width: 140px;
+  height: 28px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  gap: 10px;
+}
+
+.perfil-content .cv i {
+  order: 1;
+}
+
+.perfil-content .description {
+  font-size: 10px;
+  margin-top: 0;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.perfil-content .skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 28px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.perfil-content .skill {
+  background: #ffffff;
+  border: 1px solid #e3ce61;
+  padding: 5px 10px;
+  border-radius: 40px;
+  font-size: 12px;
+  color: #333;
+  white-space: nowrap;
+}
+
+/* Sección Proceso (Derecha) */
+.proceso {
+  flex-grow: 1;
+  background-color: #ffffff;
+  padding: 20px 20px 10px 20px;
+  border-radius: 10px;
+}
+
+.proceso .card {
+  background: #fff;
+  border: 1px solid var(--azul-brillante);
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 44px;
+}
+
+.proceso .card strong {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--gris-2);
+}
+
+.proceso .card .status-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espacio entre "En proceso" y el botón */
+}
+
+.proceso .card .status-container div {
+  border: 1px solid var(--gris-4); /* Borde solo en "En proceso" */
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  color: var(--gris-4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+}
+
+.proceso .card .status-container button {
+  background: #f9fafc;
+  border: none;
+  color: var(--azul);
+  padding: 5px 10px;
+  border-radius: 50px;
+  font-size: 14px;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-container.sidebar-expanded .perfil {
+  width: 400px;
+  transition: width 0.3s;
+}

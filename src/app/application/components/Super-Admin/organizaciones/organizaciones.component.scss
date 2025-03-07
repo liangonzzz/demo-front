@@ -17,7 +17,7 @@ body {
 
 /* Primer rectángulo: Header */
 .header-rectangle {
-  background-color: #ffffff;
+  background-color: var(--white);
   border-radius: 8px;
   padding: 16px;
   margin-bottom: 8px;
@@ -39,7 +39,7 @@ body {
 
   .add-button {
     flex: 0 0 20% !important;
-    background-color: #ffffff !important;
+    background-color: var(--white) !important;
     color: var(--azul) !important;
     padding: 8px 16px !important;
     cursor: pointer;
@@ -52,18 +52,18 @@ body {
     gap: 8px !important;
 
     &:hover {
-      background-color: #f7fbff !important;
+      background-color: var(--button-primary) !important;
     }
   }
 }
 
 /* Segundo rectángulo: Search */
 .search-rectangle {
-  background-color: #ffffff;
+  background-color: var(--white);
   border-radius: 8px;
   padding: 8px 16px;
   margin-bottom: 16px;
-  height: 44px;
+  height: 51px;
   width: 100%;
   box-sizing: border-box;
 
@@ -71,7 +71,7 @@ body {
     display: flex;
     align-items: center;
     gap: 32px;
-    height: 30px;
+    height: 100%;
     width: 100%;
   }
 
@@ -94,19 +94,20 @@ body {
     input {
       padding-left: 48px;
       width: 100%;
-      border: 1px solid var(--gris-3);
+      border: 1px solid var(--gris-4);
       border-radius: 4px;
-      height: 100%;
-      font-size: 14px;
+      height: 35px;
+      font-size: 12px;
       box-sizing: border-box;
       line-height: 31px;
+      color: #000000; 
     }
   }
 
   .search-button {
     flex: 0 0 12%;
-    height: 30px;
-    background-color: #ffffff !important;
+    height: 35px;
+    background-color: var(--white) !important;
     border: 1px solid var(--azul) !important;
     color: var(--azul) !important;
     padding: 8px 12px;
@@ -117,17 +118,13 @@ body {
     justify-content: center;
     font-size: 16px;
     line-height: 1;
-    margin-bottom: 12px;
-
-    &:hover {
-      background-color: #0057a3;
-    }
+    margin-bottom: 10px;
   }
 }
 
 /* Tercer rectángulo: Table */
 .table-rectangle {
-  background-color: #ffffff;
+  background-color: var(--white);
   border-radius: 8px; /* Bordes redondeados para el contenedor de la tabla */
   overflow: hidden; /* Esto asegura que el contenido no se desborde de las esquinas redondeadas */
   margin-bottom: 8px;
@@ -142,7 +139,7 @@ body {
   table-layout: fixed;
   height: 100%;
   flex: 1;
-  background-color: #ffffff;
+  background-color: var(--white);
 }
 
 /* Estilo para las celdas en las esquinas superiores */
@@ -171,7 +168,7 @@ body {
 
 .table-rectangle thead th {
   padding: 8px 8px;
-  background-color: #ffffff;
+  background-color: var(--white);
   color: var(--gris-2);
   font-weight: 600;
   text-align: left;
@@ -186,7 +183,7 @@ body {
 .table-rectangle thead th i.fa-sort {
   margin-left: 8px; /* Lo empuja hacia la derecha */
   font-size: 8px; /* Ajusta el tamaño */
-  color: #7a7a7a; /* Color del icono */
+  color: var(--gris-2); /* Color del icono */
 
 }
 /* Ancho de columnas según porcentajes especificados */
@@ -219,7 +216,7 @@ body {
 .table-rectangle tbody td {
   padding: 4px 8px;
   font-size: 12px;
-  color: #333;
+  color: var(--black);
   vertical-align: middle;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -250,8 +247,8 @@ body {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  background-color: #f7f9fd !important;
-  color: #7ab2d3 !important;
+  background-color: var(--button-primary) !important;
+  color: var(--icon-button) !important;
   overflow: hidden !important;
   transition: background-color 0.3s ease !important;
   margin: 0 !important;
@@ -264,7 +261,7 @@ body {
 
 /* Estilos anteriores */
 .table-rectangle .action-button {
-  background-color: #ffffff !important;
+  background-color: var(--white) !important;
   border: 1px solid var(--azul) !important;
   color: var(--azul) !important;
   padding: 2px 8px;
@@ -274,9 +271,6 @@ body {
   margin: 0;
 }
 
-.table-rectangle .action-button:hover {
-  background-color: #f7fbff !important;
-}
 
 /* Cuarto rectángulo: Footer */
 .footer-rectangle {
@@ -292,7 +286,7 @@ body {
   min-height: 50px; /* Añadido para asegurar espacio para los elementos */
 
   .export-button {
-    background-color: #ffffff !important;
+    background-color: var(--white) !important;
     border: 1.5px solid var(--azul) !important;
     color: var(--azul) !important;
     cursor: pointer;
@@ -305,7 +299,7 @@ body {
     gap: 5px;
 
     &:hover {
-      background-color: #f7fbff !important;
+      background-color: var(--button-primary) !important;
     }
   }
 
@@ -322,8 +316,8 @@ body {
       margin: 0;
 
       &.p-highlight {
-        background-color: #ffffff !important; /* Cambiado a rojo */
-        color: #ffffff !important;
+        background-color: var(--white) !important; /* Cambiado a rojo */
+        color: var(--white) !important;
       }
     }
 
@@ -334,9 +328,10 @@ body {
       color: var(--azul) !important;
       min-width: 32px;
       height: 32px;
+      border-radius: 50px;
 
       &:not(.p-disabled):hover {
-        background-color: #f7fbff !important;
+        background-color: var(--button-primary) !important;
       }
 
       &.p-disabled {

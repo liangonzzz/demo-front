@@ -7,11 +7,13 @@ import { Component } from '@angular/core';
 })
 export class PantallaSuperAdminComponent {
   isSidebarExpanded = false;
-  mostrarTablero = true; 
+  selectedMenu = 0;
 
   onSidebarStateChange(event: { isOpen: boolean, selectedIndex: number | null }) {
     this.isSidebarExpanded = event.isOpen;
     // Si selectedIndex es 0, muestra "Mi tablero"; si es 1, muestra "Organizaciones"
-    this.mostrarTablero = event.selectedIndex === 0;
+    if (event.selectedIndex !== null) {
+      this.selectedMenu = event.selectedIndex;
+    }
   }
 }

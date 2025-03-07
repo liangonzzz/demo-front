@@ -5,11 +5,12 @@ import { RestablecerComponent } from './application/components/Login/restablecer
 import { ConfirmarComponent } from './application/components/Login/confirmar/confirmar.component';
 import { ConfiContraComponent } from './application/components/Login/confi-contra/confi-contra.component';
 import { ConfiCorreoComponent } from './application/components/Login/confi-correo/confi-correo.component';
-import { PantallaSuperAdminComponent } from './application/components/Super-Admin/pantalla-super-admin/pantalla-super-admin.component';
+import { PantallaSuperAdminComponent } from './application/components/pantalla-principal/pantalla-super-admin/pantalla-super-admin.component';
 import { OrganizacionesComponent } from './application/components/Super-Admin/organizaciones/organizaciones.component';
 import { MiTableroComponent } from './application/components/Super-Admin/mi-tablero/mi-tablero.component';
 import { FormularioComponent } from './application/components/Super-Admin/formulario/formulario.component';
-
+import { MiTableroCandiComponent } from './application/components/candidato/mi-tablero-candi/mi-tablero-candi.component';
+import { MiProgresoComponent } from './application/components/candidato/mi-progreso/mi-progreso.component';
 
 
 
@@ -24,6 +25,8 @@ const routes: Routes = [
   { path: 'organizaciones', component: OrganizacionesComponent },
   { path: 'mi-tablero', component: MiTableroComponent },
   { path: 'formulario', component: FormularioComponent },
+  { path: 'mi-tablero-candi', component: MiTableroCandiComponent },
+  { path: 'mi-progreso', component: MiProgresoComponent },
   { path: '', redirectTo: '/login-nuevo', pathMatch: 'full' }
 ];
 

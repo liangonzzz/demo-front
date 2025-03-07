@@ -49,7 +49,7 @@ html {
 .logo-section {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--white);
   display: flex;
   align-items: end;
   justify-content: center;
@@ -76,7 +76,7 @@ html {
 .form-section {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--white);
   padding: 4px 24px 4px 24px;
   display: flex;
   flex-direction: column;
@@ -192,12 +192,12 @@ html {
 }
 
 .error-text {
-  color: #dc3545;
+  color: var(--error);
   text-align: center;
   font-size: 12px;
   margin: 0;
   padding: 4px 8px;
-  background-color: rgba(220, 53, 69, 0.1);
+  background-color: var(--input-error);
   border-radius: 4px;
   transform: translateY(-5px);
   transition: opacity 0.5s ease, transform 0.5s ease;
@@ -252,12 +252,12 @@ html {
   top: 1.5px;
   width: 13px;
   height: 13px;
-  border: 2px solid #7bdbf1;
-  background-color: white;
+  border: 2px solid var(--checkbox);
+  background-color: var(--white);
 }
 
 .custom-checkbox:checked + label::before {
-  background-color: #7bdbf1; /* Fondo azul */
+  background-color: var(--checkbox); /* Fondo azul */
 }
 
 .custom-checkbox:checked + label::after {
@@ -265,14 +265,14 @@ html {
   position: absolute;
   left: 2.5px;
   font-size: 9px;
-  color: white;
+  color: var(--white);
   margin-top: 2px;
 }
 
 /* Estilos para el enlace */
 .checkbox-item a {
   font-size: 9px;
-  color: #7bdbf1;
+  color: var(--checkbox);
   text-decoration: none;
 }
 

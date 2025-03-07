@@ -1,0 +1,65 @@
+.title-rectangle {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 48px;
+  width: 100%;
+  box-sizing: border-box;
+
+  h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--azul);
+    margin-left: 30px;
+    margin-right: 240px;
+    flex: 0 0 auto;
+  }
+
+  /* Estilos para el contenedor de progreso en línea */
+  .progreso-inline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+
+    /* Círculo simple usando div con texto de porcentaje */
+    .circle-simple {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--azul); /* Borde azul */
+      background-color: white;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      /* Estilos para el texto de porcentaje */
+      .percentage {
+        font-size: 10px;
+        font-weight: bold;
+        color: var(--azul);
+      }
+    }
+
+    .progress-bar-container {
+      flex-grow: 1;
+      width: 100%;
+      max-width: 640px;
+
+      ::ng-deep .custom-progress {
+        height: 7px;
+        border-radius: 5px;
+        background-color: var(--gris-5);
+
+        .p-progressbar-value {
+          background-color: var(--icon-login);
+        }
+      }
+    }
+  }
+}

@@ -20,7 +20,7 @@
       <thead>
         <tr>
           <th></th>
-          <th (click)="sort('name')">Razón Social <i class="fa-solid fa-sort"></i></th>
+          <th (click)="sort('company_name')">Razón Social <i class="fa-solid fa-sort"></i></th>
           <th (click)="sort('phone')">Teléfono <i class="fa-solid fa-sort"></i></th>
           <th (click)="sort('email')">Correo <i class="fa-solid fa-sort"></i></th>
           <th (click)="sort('admin')">Administración <i class="fa-solid fa-sort"></i></th>
@@ -31,8 +31,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let org of paginatedOrganizations">
-          <td><img [src]="org.logo" [alt]="'Logo ' + org.name" class="logo-img"></td>
-          <td>{{org.name}}</td>
+          <td><img [src]="org.logo" [alt]="'Logo ' + org.company_name" class="logo-img"></td>
+          <td>{{org.company_name}}</td>
           <td>{{org.phone}}</td>
           <td>{{org.email}}</td>
           <td>{{org.admin}}</td>

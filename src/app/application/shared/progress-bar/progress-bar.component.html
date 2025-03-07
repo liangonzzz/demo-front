@@ -1,0 +1,20 @@
+<div class="title-rectangle">
+  <h3>Mi proceso</h3>
+
+  <!-- Círculo y barra de progreso después del h3 -->
+  <div class="progreso-inline">
+    <!-- Círculo simple con borde azul usando div y texto de porcentaje -->
+    <div class="circle-simple">
+      <span class="percentage">{{porcentajeProgreso}}%</span>
+    </div>
+
+    <!-- Barra de progreso horizontal -->
+    <div class="progress-bar-container">
+      <p-progressBar
+        [value]="porcentajeProgreso"
+        [showValue]="false"
+        styleClass="custom-progress">
+      </p-progressBar>
+    </div>
+  </div>
+</div>

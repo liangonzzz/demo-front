@@ -3,11 +3,11 @@ import { Component } from '@angular/core';
 // Interfaz para los datos de las organizaciones
 interface Organization {
   id: number;
-  name: string;
+  company_name: string;
   logo: string;
   phone: string;
   email: string;
-  employees: number;
+  collaborators: number;
   candidates: number;
 }
 
@@ -24,47 +24,47 @@ export class MiTableroComponent {
   organizations: Organization[] = [
     {
       id: 1,
-      name: 'DataCenter',
       logo: '../../assets/images/datalogo.png',
-      phone: '123456789',
-      email: 'exemple@gmail.com',
-      employees: 542,
-      candidates: 14
+      company_name: 'DataCenter',
+      phone: '301124987',
+      email: 'support@datacenter.com',
+      collaborators: 150,
+      candidates: 18
     },
     {
       id: 2,
-      name: 'Gelsa',
+      company_name: 'Gelsa',
       logo: '../../assets/images/gelsalogo.png', // Cambia la ruta según corresponda
       phone: '987654321',
       email: 'exemple@gmail.com',
-      employees: 300,
+      collaborators: 300,
       candidates: 25
     },
     {
       id: 3,
-      name: 'PagaTodo',
+      company_name: 'PagaTodo',
       logo: '../../assets/images/pagatodo.png', // Cambia la ruta según corresponda
       phone: '456789123',
       email: 'exemple@gmail.com',
-      employees: 150,
+      collaborators: 150,
       candidates: 10
     },
     {
       id: 4,
-      name: 'Ubisof',
+      company_name: 'Ubisof',
       logo: '../../assets/images/Ubisoft_logo1.svg', // Cambia la ruta según corresponda
       phone: '321654987',
       email: 'exemple@gmail.com',
-      employees: 200,
+      collaborators: 200,
       candidates: 18
     },
     {
       id: 5,
-      name: 'Youtube',
+      company_name: 'Youtube',
       logo: '../../assets/images/youtube.png', // Cambia la ruta según corresponda
       phone: '654321987',
       email: 'exemple@gmail.com',
-      employees: 180,
+      collaborators: 180,
       candidates: 12
     }
   ];

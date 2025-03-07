@@ -7,7 +7,7 @@ import { AuthService } from '../../../../infrastructure/core/service/auth.servic
 @Component({
   selector: 'app-restablecer',
   templateUrl: './restablecer.component.html',
-  styleUrl: './restablecer.component.scss'
+  styleUrls: ['./restablecer.component.scss']
 })
 export class RestablecerComponent {
   resetForm: FormGroup;
@@ -19,6 +19,10 @@ export class RestablecerComponent {
   token: string = '';
   showPassword: boolean = false;
   showConfirmPassword: boolean = false;
+  hasMinLength: boolean = false;
+  hasUppercase: boolean = false;
+  hasLowercase: boolean = false;
+  hasNumber: boolean = false;
 
   constructor(
     private router: Router,
@@ -26,18 +30,27 @@ export class RestablecerComponent {
     private route: ActivatedRoute,
     private authService: AuthService
   ) {
-    // Inicializa el formulario correctamente
     this.resetForm = this.fb.group({
       newPassword: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', [Validators.required]]
     });
 
-    // Obtener el token de la URL
     this.route.queryParams.subscribe(params => {
       if (params['token']) {
         this.token = params['token'];
       }
     });
+
+    this.resetForm.get('newPassword')?.valueChanges.subscribe(value => {
+      this.validatePassword(value);
+    });
+  }
+
+  validatePassword(password: string) {
+    this.hasMinLength = password.length >= 8;
+    this.hasUppercase = /[A-Z]/.test(password);
+    this.hasLowercase = /[a-z]/.test(password);
+    this.hasNumber = /\d/.test(password);
   }
 
   onSubmit() {
@@ -47,6 +60,11 @@ export class RestablecerComponent {
     }
 
     const { newPassword, confirmPassword } = this.resetForm.value;
+
+    if (!this.hasMinLength || !this.hasUppercase || !this.hasLowercase || !this.hasNumber) {
+      this.showErrorMessage('La contraseña no cumple con los requisitos.');
+      return;
+    }
 
     if (newPassword !== confirmPassword) {
       this.showErrorMessage('Las contraseñas no coinciden.');
@@ -58,7 +76,6 @@ export class RestablecerComponent {
       return;
     }
 
-    // Enviar al backend con el formato correcto
     const payload = {
       token: this.token,
       newPassword: newPassword,

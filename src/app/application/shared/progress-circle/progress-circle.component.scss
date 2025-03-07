@@ -1,0 +1,59 @@
+.progress-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress-container h3 {
+  font-size: 12px;
+  margin: 8px 0 0 0;
+  color: var(--azul);
+  font-weight: 600;
+}
+
+.circle-progress {
+  width: var(--size); /* Tamaño dinámico */
+  height: var(--size); /* Tamaño dinámico */
+  margin: 8px 0 16px 0;
+}
+
+.circle-progress svg {
+  width: 100%;
+  height: 100%;
+}
+
+.circle-background {
+  fill: var(--fondo-porce);
+  stroke: none;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: var(--gris-5);
+  stroke-width: 1.5;
+}
+
+.circle-fill {
+  fill: none;
+  stroke: var(--icon-login);
+  stroke-width: 1.5;
+  transform: rotate(0deg);
+  transform-origin: 18px 18px;
+  transition: stroke-dasharray 0.5s ease;
+}
+
+.percentage {
+  font-size: 8px; /* Tamaño fijo, como en 200px */
+  text-anchor: middle;
+  fill: var(--azul);
+  font-weight: bold;
+  dominant-baseline: middle;
+}
+
+.label {
+  font-size: 2.3px; /* Tamaño fijo, como en 200px */
+  text-anchor: middle;
+  fill: var(--gris-2);
+  dominant-baseline: middle;
+}

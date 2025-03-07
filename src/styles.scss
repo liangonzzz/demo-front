@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 @import "primeicons/primeicons.css";
 
+
 body{
     margin: 0;
     padding: 0;
@@ -26,12 +27,12 @@ body{
   --azul_claro-hover: #0a9ea9;
   --morado-hover: #7b4ce0;
 */
-  /* Colores Primarios*/
+
+
+  /* Paleta de Colores*/
   --azul: #4a628a;
   --azul-hover: #415880;
-
-  /* Colores Secundarios*/
-  --azul-brillante: #9bc5de;
+  --azul-brillante: #b9e5e8;
 
 /* Surface */
   --gris-1: #484848;
@@ -39,8 +40,23 @@ body{
   --gris-3: #a4a4a4;
   --gris-4: #d4d4d4;
   --gris-5: #e5e5e5;
-
-
   --white: white;
   --black: black;
+
+  /*botones*/
+  --button-primary: #f7f9fd;
+  --icon-button: #7ab2d3;
+  --icon-login: #48bb78;
+
+
+  /*errores o aciertos*/
+  --right: #53c21f;
+  --error: #da1f31;
+  --input-error: #dc354618;
+
+  /*checkbox*/
+  --checkbox: #7bdbf1;
+
+  /*textos*/
+  --fondo-porce: #e3f0e6;
 }

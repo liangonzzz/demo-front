@@ -16,7 +16,11 @@ export class SidebarComponent {
 
   menuItems = [
     { name: 'Mi tablero', icon: 'fas fa-home' },
-    { name: 'Organizaciones', icon: 'fa fa-industry' },
+    { name: 'Organizaciones', icon: 'fa fa-layer-group' },
+    { name: 'Mi tablero candi.', icon: 'fas fa-home' },
+    { name: 'Mi Progreso', icon: 'fa-solid fa-list-check' },
+    { name: 'Alerta', icon: 'fas fa-bell' },
+
   ];
 
   selectedItem: number | null = 0; // Iniciamos con "Mi tablero" seleccionado por defecto
@@ -33,3 +37,5 @@ export class SidebarComponent {
     this.sidebarStateChange.emit({ isOpen: this.isSidebarOpen, selectedIndex: this.selectedItem });
   }
 }
+
+

@@ -1,0 +1,37 @@
+<body>
+  <div class="main-content">
+    <!-- Rectángulo grande superior con título y fecha -->
+    <app-bienvenido></app-bienvenido>
+
+    <!-- Contenedor para alinear notificaciones y asignaciones horizontalmente -->
+    <div class="header-container">
+      <!-- Rectángulo para Notificaciones -->
+      <div class="notification-card">
+        <div class="notification">
+          <i class="fa-solid fa-bell"></i>
+          <span class="info">{{ notificationsCount }} Notificaciones</span>
+        </div>
+      </div>
+
+      <!-- Rectángulo para Asignaciones -->
+      <div class="assignment-card">
+        <div class="assignment">
+          <i class="fa-solid fa-clipboard-check"></i>
+          <span class="info">{{ assignmentsCount }} Asignaciones</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rectángulo para el círculo de progreso y el botón -->
+    <div class="progress-card">
+      <!-- Usar el componente reutilizable con tamaño personalizado -->
+      <app-progress-circle
+        [progress]="value"
+        title="Mi proceso de contratación"
+        [size]="200"
+        [style.--size]="'200px'"></app-progress-circle>
+      <!-- Botón -->
+      <button pButton label="Ir al proceso" class="button-pro"></button>
+    </div>
+  </div>
+</body>

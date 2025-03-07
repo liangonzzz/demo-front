@@ -1,8 +1,7 @@
 /* Estilos para .table-container y sus modificadores */
 .table-container {
-  padding: 30px 30px 0 30px;
+  padding: 20px 24px 0 24px;
   max-width: 100%;
-  margin: 28px auto 0;
   width: 100%;
   box-sizing: border-box;
 
@@ -19,29 +18,35 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 40px;
+  height: 48px;
   width: 100%;
   box-sizing: border-box;
 
   h3 {
-    flex: 0 0 75%;
+    flex: 0 0 96%;
     margin: 0;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 500;
     color: var(--azul);
-    margin-left: 20px;
+    margin-left: 10px; /* Reduje de 20px a 10px para acercar el texto */
+  }
+
+  /* Añadimos estilo para el ícono */
+  i {
+    color: var(--azul); /* Color verde - puedes ajustar el valor hexadecimal según el tono que quieras */
+    margin-left: 14px;
   }
 }
 
 /* Estilos para .form-rectangle */
 .form-rectangle {
-  background-color: #17cc0a; /* Mantengo verde, pero puedes cambiar a rojo si es necesario */
+  background-color: #ffffff; /* Mantengo verde, pero puedes cambiar a rojo si es necesario */
   border-radius: 8px;
-  padding: 8px 180px 8px 180px;
+  padding: 12px 200px 0 200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70vh;
+  height: 68vh;
   width: 100%;
   box-sizing: border-box;
   margin-top: 15px;
@@ -70,21 +75,32 @@
 
 .p-field label {
   display: block;
-  margin-bottom: 4px;
-  color: var(--gris-3);
+  margin-bottom: 8px;
+  color: var(--gris-2);
   font-weight: 300;
-  font-size: 12px;
+  font-size: 13px;
   margin-top: 8px;
 }
 
 .p-inputtext {
   width: 100%;
   padding: 6px;
-  border: 1px solid var(--gris-4);
+  border: 1px solid var(--gris-5) !important;
+  box-shadow: #91919122 0px 1px 1px 0px;
   border-radius: 6px;
   font-size: 12px;
-  height: 32px;
+  height: 38px;
 }
+
+.p-inputtext::placeholder {
+  color: var(--gris-4) !important; /* Verde para el texto del placeholder */
+  opacity: 1 !important; /* Asegura que el color sea sólido (algunos navegadores aplican opacidad por defecto) */
+}
+
+input:focus, :hover {
+  border-color: var(--azul) !important;
+}
+
 
 /* Estilos para grids dentro de .p-field-grid */
 .p-field-grid {
@@ -100,12 +116,13 @@
 .edit-button {
   width: 100%;
   padding: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--gris-5);
+  box-shadow: #91919122 0px 1px 1px 0px;
   border-radius: 4px;
   font-size: 12px;
-  color: #333;
+  color: var(--gris-4);
   background-color: #ffffff;
-  height: 32px;
+  height: 38px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -119,44 +136,20 @@
 
 .edit-button:hover {
   background-color: #fdfdfd; /* Ligeramente diferente para indicar hover, similar a los inputs */
-  border-color: #e3ce61; /* Ligeramente más oscuro para consistencia */
+  border-color: #e3ce61 !important; /* Ligeramente más oscuro para consistencia */
 }
 
 .edit-button i {
-  font-size: 12px;
-  margin-left: 8px; /* Añade espacio entre el texto y el ícono */
-  margin-right: 0; /* Elimina cualquier margen a la derecha si existiera */
+  font-size: 16px;
+  margin-right: 8px; /* Elimina cualquier margen a la derecha si existiera */
 }
 
 /* Estilos para el botón "Crear organización" (pButton) */
 .p-button {
-  background-color: #ffffff; /* Igual que los inputs para consistencia */
-  border: 1px solid #ccc; /* Igual que los inputs */
-  padding: 6px; /* Reducido para consistencia con inputs */
-  width: 100%;
-  font-size: 12px; /* Igual que los inputs */
-  color: #333; /* Igual que el texto de los inputs */
-  border-radius: 4px;
+  font-size: 11px !important; /* Igual que los inputs */
+  border-radius: 6px !important;
+  font-weight: 400 !important; /* Igual que los inputs */
   cursor: pointer;
-  height: 32px; /* Igual que los inputs */
+  height: 40px !important; /* Igual que los inputs */
 }
 
-.p-button:hover {
-  background-color: #f0f0f0; /* Ligeramente diferente para indicar hover, similar a los inputs */
-  border-color: #999; /* Ligeramente más oscuro para consistencia */
-}
-
-/* Estilos para el componente de subida de archivos (p-fileUpload) */
-.p-fileupload .p-button {
-  background-color: #e3ce61;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  padding: 6px 12px;
-  font-size: 12px;
-  height: 30px;
-}
-
-.p-fileupload .p-button:hover {
-  background-color: #e3ce61;
-}

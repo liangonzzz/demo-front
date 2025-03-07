@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoginPrincipalComponent } from './login-principal.component';
+import { MiTableroCandiComponent } from './mi-tablero-candi.component';
 
-describe('LoginPrincipalComponent', () => {
-  let component: LoginPrincipalComponent;
-  let fixture: ComponentFixture<LoginPrincipalComponent>;
+describe('MiTableroCandiComponent', () => {
+  let component: MiTableroCandiComponent;
+  let fixture: ComponentFixture<MiTableroCandiComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LoginPrincipalComponent]
+      imports: [MiTableroCandiComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LoginPrincipalComponent);
+    fixture = TestBed.createComponent(MiTableroCandiComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

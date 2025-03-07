@@ -20,10 +20,17 @@
         <div class="input-wrapper">
           <span class="material-symbols-outlined">lock</span>
           <input pInputText id="newPassword" [type]="showPassword ? 'text' : 'password'" placeholder="Ingrese su nueva contraseña"
-            formControlName="newPassword" />
+            formControlName="newPassword"  />
           <i class="pi" [ngClass]="showPassword ? 'pi-eye-slash' : 'pi-eye'" (click)="togglePasswordVisibility('password')"></i>
         </div>
-        <small class="resetpass">La contraseña debe tener al menos 8 caracteres, incluyendo mayúsculas, minúsculas, un número y un símbolo.</small>
+        <small class="resetpass">
+          <div class="password-requirements">
+            <span [ngClass]="{'valid': hasMinLength}"><i class="pi pi-check"></i> Mín. 8 caracteres</span>
+            <span [ngClass]="{'valid': hasUppercase}"><i class="pi pi-check"></i> Mayúscula</span>
+            <span [ngClass]="{'valid': hasLowercase}"><i class="pi pi-check"></i> Minúscula</span>
+            <span [ngClass]="{'valid': hasNumber}"><i class="pi pi-check"></i> Número</span>
+          </div>
+        </small>
       </div>
 
       <!-- Campo de confirmación de contraseña -->
@@ -54,4 +61,3 @@
     </form>
   </div>
 </div>
-  

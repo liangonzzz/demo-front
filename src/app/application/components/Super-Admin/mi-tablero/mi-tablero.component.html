@@ -16,18 +16,18 @@
       <!-- Cuadrados 2, 3 y 4: Organizaciones dinámicas -->
       <div *ngFor="let org of organizations | slice:0:3" class="square square-2">
         <div class="inner-rectangle">
-          <img [src]="org.logo" [alt]="org.name" class="inner-image" />
+          <img [src]="org.logo" [alt]="org.company_name" class="inner-image" />
         </div>
         <div class="divider"></div>
         <div class="info">
-          <div class="title">{{ org.name }}</div>
+          <div class="title">{{ org.company_name }}</div>
           <div class="contact">Tel: {{ org.phone }}</div>
           <div class="contact">Correo: {{ org.email }}</div>
         </div>
         <div class="small-squares">
           <div class="small-square">
             <div class="content">
-              <span class="number">{{ org.employees }}</span>
+              <span class="number">{{ org.collaborators }}</span>
               <span class="text">Funcionarios</span>
             </div>
           </div>
@@ -49,18 +49,18 @@
       <div class="square empty-square"></div>
       <div *ngFor="let org of organizations | slice:3:5" class="square square-2">
         <div class="inner-rectangle">
-          <img [src]="org.logo" [alt]="org.name" class="inner-image" />
+          <img [src]="org.logo" [alt]="org.company_name" class="inner-image" />
         </div>
         <div class="divider"></div>
         <div class="info">
-          <div class="title">{{ org.name }}</div>
+          <div class="title">{{ org.company_name }}</div>
           <div class="contact">Tel: {{ org.phone }}</div>
           <div class="contact">Correo: {{ org.email }}</div>
         </div>
         <div class="small-squares">
           <div class="small-square">
             <div class="content">
-              <span class="number">{{ org.employees }}</span>
+              <span class="number">{{ org.collaborators }}</span>
               <span class="text">Funcionarios</span>
             </div>
           </div>

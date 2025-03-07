@@ -1,0 +1,103 @@
+<div class="table-container" [class.sidebar-expanded]="isSidebarExpanded">
+  <app-progress-bar></app-progress-bar>
+
+  <div class="container">
+    <!-- Sección Perfil (Izquierda) -->
+    <div class="perfil">
+      <div class="perfil-content">
+        <img [src]="fotoPerfil" alt="Avatar" class="avatar" />
+        <h2>{{ perfil.nombre }}</h2>
+        <p class="position">{{ perfil.profesion }}</p>
+        <div class="contact-info">
+          <small>{{ perfil.correo }}</small>
+          <small>{{ perfil.numero }}</small>
+        </div>
+        <button class="cv">
+          <i class="fa-solid fa-file-arrow-down"></i> Hoja de vida
+        </button>
+        <p class="description">
+          {{ perfil.descripcion }}
+        </p>
+        <div class="skills">
+          <span class="skill" *ngFor="let skill of perfil.skills">{{ skill }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección Proceso (Derecha) -->
+    <div class="proceso">
+      <div class="card">
+        <strong>Información de perfil</strong>
+        <div class="status-container">
+          <div>En proceso</div>
+          <button (click)="onProcessClick('Información de perfil')">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card">
+        <strong>Datos personales</strong>
+        <div class="status-container">
+          <div>En proceso</div>
+          <button (click)="onProcessClick('Datos personales')">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card">
+        <strong>Formación académica</strong>
+        <div class="status-container">
+          <div>En proceso</div>
+          <button (click)="onProcessClick('Formación académica')">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card">
+        <strong>Experiencia laboral</strong>
+        <div class="status-container">
+          <div>En proceso</div>
+          <button (click)="onProcessClick('Experiencia laboral')">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card">
+        <strong>Prueba psicológica</strong>
+        <div class="status-container">
+          <div>En proceso</div>
+          <button (click)="onProcessClick('Prueba psicológica')">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card">
+        <strong>Documentación y contratación</strong>
+        <div class="status-container">
+          <div>En proceso</div>
+          <button (click)="onProcessClick('Documentación y contratación')">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card">
+        <strong>Infraestructura creación de usuario</strong>
+        <div class="status-container">
+          <div>En proceso</div>
+          <button (click)="onProcessClick('Infraestructura creación de usuario')">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card">
+        <strong>Servicios instalación de programas</strong>
+        <div class="status-container">
+          <div>En proceso</div>
+          <button (click)="onProcessClick('Servicios instalación de programas')">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
